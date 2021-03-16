@@ -8,11 +8,10 @@ export function action(data) {
     }
 }
 
-export function addFeature(value, name) {
+export function addFeature(feature) {
     return {
         type: ADD_FEATURE,
-        payloadv: value,
-        payloadn: name
+        payload: feature,
     }
 }
 
