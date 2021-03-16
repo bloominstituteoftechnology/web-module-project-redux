@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { action } from '../actions';
+
 
 import AddedFeature from './AddedFeature';
 
@@ -29,4 +29,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { action })(AddedFeatures)
+export default connect(mapStateToProps, {})(AddedFeatures)

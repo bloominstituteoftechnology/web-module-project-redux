@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { action } from '../actions';
+
 
 const Header = (props) => {
   return (
@@ -23,4 +23,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, { action })(Header)
+export default connect(mapStateToProps, {})(Header)

@@ -1,10 +1,10 @@
-export const ACTION = "ACTION";
+export const REMOVE_FEATURE = "REMOVE_FEATURE";
 export const ADD_FEATURE = "ADD_FEATURE"
 
-export function action(data) {
+export function removeFeature(feature) {
     return {
-        type: ACTION,
-        payload: data
+        type: REMOVE_FEATURE,
+        payload: feature,
     }
 }
 
@@ -14,12 +14,3 @@ export function addFeature(feature) {
         payload: feature,
     }
 }
-
-
-
-// MVP Requirements:
-// Move the given state to the reducer as the initial state for the Redux store.
-// Set up the Redux flow
-// User should be able to add features to their car
-// User should be able to remove added features from their car
-// Total should update as user adds and removes features from their car
