@@ -1,9 +1,18 @@
 export const ACTION = "ACTION";
+export const ADD_FEATURE = "ADD_FEATURE"
 
 export function action(data) {
     return {
         type: ACTION,
-        payload: data,
+        payload: data
+    }
+}
+
+export function addFeature(value, name) {
+    return {
+        type: ADD_FEATURE,
+        payloadv: value,
+        payloadn: name
     }
 }
 
