@@ -1,6 +1,7 @@
-export default function reducer() {
-    return {
-        additionalPrice: 0,
+import { ACTION } from '../actions'
+
+const initialState = {
+  additionalPrice: 0,
     car: {
       price: 26395,
       name: '2019 Ford Mustang',
@@ -14,5 +15,17 @@ export default function reducer() {
       { id: 3, name: 'Premium sound system', price: 500 },
       { id: 4, name: 'Rear spoiler', price: 250 }
     ]
+}
+
+export default function reducer(state = initialState, action) {
+    switch(action.type) {
+      
+      case ACTION:
+        return {
+          ...state
+        }
+
+      default: 
+        return state;
     }
 }
