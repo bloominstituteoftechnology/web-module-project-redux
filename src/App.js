@@ -4,8 +4,12 @@ import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
+import {} from './reducers'
+
 
 const App = () => {
+
+  // - Move the given state to the reducer as the initial state for the Redux store.
   const state = {
     additionalPrice: 0,
     car: {
