@@ -2,47 +2,33 @@ import React from 'react';
 import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
-import { updateAddlPrice, updateCarPrice,  updateCarName,  updateCarImage, updateCarFeatures, updateAddlFeatures } from './actions'
+import { updateAddlPrice, updateCarPrice,  updateCarName,  updateCarImage, updateCarFeatures, updateAddlFeatures, addNewFeature, removeFeature } from './actions'
 import Total from './components/Total';
 import { connect } from 'react-redux';
 
-const App = () => {
-  const state = {
-    newAddlPrice: '',
-    newCar: {
-      newPrice: null,
-      newName: '',
-      newImage: '',
-      newFeatures: []
-    },
-    newAddlFeatures: [
-      { id: Date.now(), name: '', price: null },
-    ]
-  };
+const App = (state) => {
 
   return (
     <div className="boxes">
       <div className="box">
-        <Header car={state.newCcar} />
-        <AddedFeatures car={state.newCar} />
+        <Header car={state.car} />
+        <AddedFeatures car={state.car} />
       </div>
       <div className="box">
-        <AdditionalFeatures additionalFeatures={state.newAddlFeatures} />
-        <Total car={state.newCar} additionalPrice={state.newAddlPrice} />
+        <AdditionalFeatures additionalFeatures={state.additionalFeatures} />
+        <Total car={state.car} additionalPrice={state.additionalPrice} />
       </div>
     </div>
   );
 };
 
-const map = (state) => {
+const map2App = (state) => {
   return {
-    additionalPrice: state.additionalPrice,
-    price: state.car.price,
-    name: state.car.name,
-    image: state.car.image,
-    features: state.car.features,
-    additionalFeatures: state.additionalFeatures
+    ...state
   }
 }
+const map2Dispatch = (dispatch) => {
+  return  (addNewFeature, removeFeature)
+}
 
-export default connect( map, { updateAddlPrice, updateCarPrice,  updateCarName,  updateCarImage, updateCarFeatures, updateAddlFeatures })(App);
+export default connect( map2App, map2Dispatch )(App);

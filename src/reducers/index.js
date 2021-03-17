@@ -1,4 +1,4 @@
-import {  UPDATE_ADDL_PRICE, UPDATE_CAR_PRICE, UPDATE_CAR_NAME, UPDATE_CAR_IMAGE, UPDATE_CAR_FEATURES, UPDATE_ADDL_FEATURES } from '../actions'
+import { REMOVE_FEATURE, ADD_NEW_FEATURE } from '../actions'
 
   const initialState = {
     additionalPrice: 0,
@@ -19,20 +19,40 @@ import {  UPDATE_ADDL_PRICE, UPDATE_CAR_PRICE, UPDATE_CAR_NAME, UPDATE_CAR_IMAGE
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case UPDATE_ADDL_PRICE:
+    case ADD_NEW_FEATURE:
       return {
         ...state,
-        additionalPrice: action.payload,
         car: {
           ...state.car,
-          price: initialState.car.price,
-          name: initialState.car.name,
-          image: initialState.car.image,
-          features: initialState.car.features
+          features: [
+            ...state.car.features, action.payload
+          ],
+          price: state.car.price + action.payload.price
+        },
+        additionalFeatures: state.additionalFeatures.filter((feature) => {
+          return (
+            feature !== action.payload
+          )
+        })
+      }
+    case REMOVE_FEATURE:
+      return {
+        ...state,
+        car: {
+          ...state.car,
+          features: [
+            ...state.car.features.filter((feature) => {
+              return (
+                feature !== action.payload
+              )
+            })
+            
+          ],
+        price: state.car.price - action.payload.price
         },
         additionalFeatures: [
           ...state.additionalFeatures,
-          state.additionalFeatures.map((item) => ({id: item.id, name: item.name, price: item.price}))
+          action.payload
         ]
       }
     default:

@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 const Header = props => {
   return (
@@ -13,9 +12,4 @@ const Header = props => {
   );
 };
 
-const mapHeader = (state) => {
-  return {
-    car: state.car
-  }
-}
-export default connect(mapHeader)(Header);
+export default Header;

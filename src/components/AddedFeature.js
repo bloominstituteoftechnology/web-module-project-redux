@@ -8,15 +8,18 @@ const AddedFeature = props => {
       {/* Add an onClick to run a function to remove a feature */}
       <button
         className="button"
-        onClick={() => removeFeature(props.feature) }>X</button>
+        onClick={() => {
+          props.removeFeature(props.feature)
+        }}>X</button>
       {props.feature.name}
     </li>
   );
 };
 
-const mapFeature = (state) => {
+const mapFeature = (state, props) => {
   return {
-    car: state.car
+    ...state,
+    feature: props.feature
   }
 }
 
