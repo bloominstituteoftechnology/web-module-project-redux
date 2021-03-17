@@ -48,7 +48,7 @@ function addFeature(state, data){
 }
 
 function removeFeature(state, data){
-  const newFeatures = [ ...state.car.features.map( feature => feature.id !== data.id ) ]
+  const newFeatures = [ ...state.car.features.filter( feature => feature.id !== data.id ) ]
   const newAdditionalPrice = featuresPrice(newFeatures)
 
   return {
@@ -62,5 +62,5 @@ function removeFeature(state, data){
 }
 
 function featuresPrice(features){
-  return features.reduce( (feature, accumlator) => feature.price + accumlator, 0)
+  return features.reduce( (accumlator, feature) => feature.price + accumlator, 0)
 }
