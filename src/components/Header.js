@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const Header = props => {
-  console.log(props)
+  // console.log(props) it works
   return (
     <>
       <figure className="image is-128x128">
