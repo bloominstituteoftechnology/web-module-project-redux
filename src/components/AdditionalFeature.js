@@ -1,5 +1,7 @@
 import React from 'react';
-import { updateAddFeature } from './actions'
+import { connect } from 'react-redux'
+
+import { updateAddFeature } from '../actions'
 
 const AdditionalFeature = props => {
   return (
@@ -8,11 +10,16 @@ const AdditionalFeature = props => {
       <button 
       className="button" 
       onClick={() => {
-        
+        props.updateAddFeature(props.feature)
       }} >Add</button>
       {props.feature.name} (+{props.feature.price})
     </li>
   );
 };
+const mapStateToProps = (state) => {
+  return {
+    updateAddFeature: state.updateAddFeature
+  }
+}
 
-export default AdditionalFeature;
+export default connect(mapStateToProps, {updateAddFeature})(AdditionalFeature);

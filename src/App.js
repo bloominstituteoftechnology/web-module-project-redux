@@ -4,10 +4,11 @@ import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
-import {} from './reducers'
+import reducer from './reducers'
+import { connect } from 'react-redux';
 
 
-const App = () => {
+const App = (props) => {
 
   // - Move the given state to the reducer as the initial state for the Redux store.
   const state = {
@@ -30,7 +31,7 @@ const App = () => {
   return (
     <div className="boxes">
       <div className="box">
-        <Header car={state.car} />
+        <Header />
         <AddedFeatures car={state.car} />
       </div>
       <div className="box">
@@ -41,4 +42,13 @@ const App = () => {
   );
 };
 
-export default App;
+// const mapStateToProps = (state) => {
+//   console.log('state: ',state)
+//   return {
+//     car: state.car,
+//     additionalFeatures: state.additionalFeatures,
+//     additionalPrice: state.additionalPrice,
+//   }
+// }
+
+export default App ;

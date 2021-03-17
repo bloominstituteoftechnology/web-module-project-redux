@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { Provider } from 'react-redux'
 
-import { reducer } from './reducers'
+import reducer  from './reducers'
 import 'bulma/css/bulma.css';
 import './styles.scss';
 import { createStore } from 'redux';
 
 //Set up store and Provider
 const store = createStore(reducer);
- console.log(store.getState())
+ console.log('Store: ',store.get)
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(
@@ -20,3 +20,5 @@ ReactDOM.render(
 ,
   rootElement
 );
+
+
