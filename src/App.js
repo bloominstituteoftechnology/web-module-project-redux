@@ -5,36 +5,59 @@ import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
 
-const App = () => {
-  const state = {
-    additionalPrice: 0,
-    car: {
-      price: 26395,
-      name: '2019 Ford Mustang',
-      image:
-        'https://cdn.motor1.com/images/mgl/0AN2V/s1/2019-ford-mustang-bullitt.jpg',
-      features: []
-    },
-    additionalFeatures: [
-      { id: 1, name: 'V-6 engine', price: 1500 },
-      { id: 2, name: 'Racing detail package', price: 1500 },
-      { id: 3, name: 'Premium sound system', price: 500 },
-      { id: 4, name: 'Rear spoiler', price: 250 }
-    ]
-  };
+import {connect} from "react-redux";
 
+import {addFeatures, removeFeatures} from "./actions";
+
+const App = (props) => {
   return (
     <div className="boxes">
       <div className="box">
-        <Header car={state.car} />
-        <AddedFeatures car={state.car} />
+        <Header car={props.car} />
+        <AddedFeatures car={props.car} />
       </div>
       <div className="box">
-        <AdditionalFeatures additionalFeatures={state.additionalFeatures} />
-        <Total car={state.car} additionalPrice={state.additionalPrice} />
+        <AdditionalFeatures additionalFeatures={props.additionalFeatures} addFeatures={addFeatures} />
+        <Total car={props.car} additionalPrice={props.additionalPrice} />
       </div>
     </div>
   );
 };
 
-export default App;
+//* 💡 Mapping values from redux store to props for components:
+const mapStateToProps = (state) => {
+  return {
+    additionalPrice: state.additionalPrice,
+    car: {
+      price: state.car.price,
+      name: state.car.name,
+      image: state.car.image,
+      features: state.car.features,
+    },
+    additionalFeatures: state.additionalFeatures,
+  }
+};
+
+//*💡 Call connect, pass in component want to connect to Store - Function currying:
+export default connect(mapStateToProps, 
+  {addFeatures, removeFeatures})(App);
+
+/**Notes
+ ** Flow:
+ * 👉 Set up "empty" reducer and initial state 
+ * 👉 Set up store and Provider 
+ * 👉 Connect components 
+ * 👉 Add events and event handlers in UI 
+ * 👉 Build action creators 
+ * 👉 write the reducer logic for the actions 
+ * 👉 Rinse and repeat
+ * -
+ ** Steps:
+ * 🕐 Make "actions" and "reducers" directories with index(s)
+ * 🕑 Set up initial state for redux store to use in "./reducers/index.js"
+ * 🕒 Setting up store & provider
+ * 🕓 mapStateToProps and Connect function (function currying)
+ * 🕔 update component to use props instead of state
+ * 🕕 Set up action types in "./actions", create actions, build bulk exporter, import to App
+ * 🕖 write reducer logic
+ */
