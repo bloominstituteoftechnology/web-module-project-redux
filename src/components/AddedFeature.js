@@ -1,5 +1,7 @@
 import React from 'react';
-import { updateAddFeature } from '../actions'
+import { deleteFeature } from '../actions'
+
+import {connect} from 'react-redux'
 
 const AddedFeature = props => {
   return (
@@ -8,11 +10,16 @@ const AddedFeature = props => {
       <button 
       className="button" 
       onClick={() => {
-
+        props.deleteFeature(props.feature)
       }} >X</button>
       {props.feature.name}
     </li>
   );
 };
+const mapStateToProps = (state) => {
+  return {
+   deleteFeature: state.deleteFeature
+  }
+}
 
-export default AddedFeature;
+export default connect(mapStateToProps, {deleteFeature} )(AddedFeature);

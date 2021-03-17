@@ -20,19 +20,29 @@ const initialState = {
 
 //Set up "empty" reducer and initial state
 const reducer = (state = initialState, action) => {
-    console.log('action type', action.type)
-    console.log('payload', action.payload)
     switch(action.type) {
         case UPDATE_ADD_FEATURE:
-            console.log('payload', action.payload)
             return{
                 ...state,
-                // feature: ,
-                additionalPrice: state.additionalPrice + state.additionalFeatures.price,
+                additionalPrice: state.additionalPrice + action.payload.price,
                 car: {
                     ...state.car,
                     features: [...state.car.features, action.payload]
-                }
+                },
+                additionalFeatures: [...state.additionalFeatures.filter(item => item !==action.payload)]
+            }
+
+        case DELETE_FEATURE:
+            console.log('Delete payload', action.payload)
+            return{
+                ...state,
+                additionalPrice: state.additionalPrice - action.payload.price,
+                car: {
+                    ...state.car,
+                    features: [state.car.features.filter(item => item !== action.payload)]
+                },
+          
+                additionalFeatures: [...state.additionalFeatures, action.payload],
             }
 
         default: return state

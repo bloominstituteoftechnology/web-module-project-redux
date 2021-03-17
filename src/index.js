@@ -10,7 +10,6 @@ import { createStore } from 'redux';
 
 //Set up store and Provider
 const store = createStore(reducer);
- console.log('Store: ',store.get)
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(

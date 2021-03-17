@@ -6,6 +6,6 @@ export const updateAddFeature = (feature) => {
 };
 
 export const DELETE_FEATURE = 'DELETE_FEATURE';
-export const deleteFeature = () => {
-    return { type:DELETE_FEATURE }
+export const deleteFeature = (feature) => {
+    return { type:DELETE_FEATURE, payload: feature }
 }
