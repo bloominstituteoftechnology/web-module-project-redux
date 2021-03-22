@@ -12,4 +12,10 @@ const Header = props => {
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => {
+  return {
+    car: state.car,
+  }
+}
+
+export default connect(mapStateToProps, {})(Header);
