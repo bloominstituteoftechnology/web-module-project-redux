@@ -41,7 +41,7 @@ This project was put together using create-react-app (CRA). You will not need to
       Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
 - [ ] Push commits: git push origin `<firstName-lastName>`.
 
-### Task 2a:  _MVP Requirements:_
+### Task 2a: _MVP Requirements:_
 
 **Step 1 - Planning 📝**
 
@@ -79,4 +79,5 @@ Do not attempt stretch problems until MVP has been reached and a final commit ha
 - Implement an API from one of these sites [here](https://www.google.com/search?q=car+sales+api&rlz=1C5CHFA_enUS809US809&oq=car+sales+api&aqs=chrome..69i57j0l5.3580j0j1&sourceid=chrome&ie=UTF-8). I don't know if there are any good open APIs for this, so explore around. Check out what data these APIs return, and what you think would be fun to work with. The sky is the limit here!
 
 ## Submission Format
-* [ ] Submit a Pull-Request to merge `<firstName-lastName>` Branch into `main` (student's  Repo). **Please don't merge your own pull request**
+
+- [ ] Submit a Pull-Request to merge `<firstName-lastName>` Branch into `main` (student's Repo). **Please don't merge your own pull request**
