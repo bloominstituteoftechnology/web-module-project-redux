@@ -1,5 +1,7 @@
-import React, { useReducer } from "react";
-import reducer from '../reducers/featureReducer'
+import React from "react";
+import { handleAddFeature } from '../actions';
+import { connect } from 'react-redux';
+
 
 const initialState = {
   additionalPrice: 0,
@@ -19,20 +21,19 @@ const initialState = {
 }
 
 const AdditionalFeature = props => {
-  const [state, dispatch] = useReducer(reducer, initialState);
-
-  const handleAddFeature = e => {
-    e.preventDefault();
-    dispatch({ type: 'ADD_FEATURE', payload: props.feature.price })
-  }
-
   return (
     <li>
       {/* Add an onClick that will let you add a feature to your car */}
-      <button onClick= {handleAddFeature} className="button">Add</button>
+      <button onClick= {props.handleAddFeature} className="button">Add</button>
       {props.feature.name} (+{props.feature.price})
     </li>
   );
 };
 
-export default AdditionalFeature;
+const mapStateToProps = state => {
+  return {
+    additionalPrice: state.additionalPrice,
+  }
+}
+
+export default connect(mapStateToProps, { handleAddFeature})(AdditionalFeature);
