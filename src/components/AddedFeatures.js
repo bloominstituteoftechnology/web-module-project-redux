@@ -2,14 +2,14 @@ import React from 'react';
 
 import AddedFeature from './AddedFeature';
 
-const AddedFeatures = ({car}) => {
+const AddedFeatures = ({car, dispatch}) => {
   return (
     <div className="content">
       <h6>Added features:</h6>
       {car.features.length ? (
         <ol type="1">
           {car.features.map(item => (
-            <AddedFeature key={item.id} feature={item} />
+            <AddedFeature key={item.id} feature={item} dispatch={dispatch} />
           ))}
         </ol>
       ) : (

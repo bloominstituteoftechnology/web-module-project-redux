@@ -8,15 +8,24 @@ import Total from './components/Total';
 function reducer(state, action) {
   switch(action.type) {
     case "buy":
-      state.car.features.push(action.item)
-      state.additionalPrice += action.item.price;
-      break;
+      return {
+        ...state,
+        car: {
+          features: [...state.car.features, action.payload],
+        },
+        additionalPrice: state.additionalPrice + action.payload.price,
+       }
     case "cancel":
       // remove the given feuture from the array
-      state.car.features.filter(feauture => {
-        return !(feauture.id === action.item.id);
-      })
-      state.additionalPrice -= action.item.price;
+      return {
+        ...state,
+        car: {
+          features: state.car.features.filter(feauture => {
+            return !(feauture.id === action.payload.id);
+          })
+        },
+        additionalPrice: state.additionalPrice - action.payload.price,
+      }
   }
 }
 const App = () => {
