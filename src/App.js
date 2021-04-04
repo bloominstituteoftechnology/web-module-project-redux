@@ -53,10 +53,10 @@ const App = () => {
     <div className="boxes">
       <div className="box">
         <Header car={state.car} />
-        <AddedFeatures car={state.car} dispatch={dispatch} />
+        <AddedFeatures car={state.car} dispatch={() => dispatch} />
       </div>
       <div className="box">
-        <AdditionalFeatures additionalFeatures={state.additionalFeatures} dispatch={dispatch}/>
+        <AdditionalFeatures additionalFeatures={state.additionalFeatures} dispatch={() => dispatch}/>
         <Total car={state.car} additionalPrice={state.additionalPrice} />
       </div>
     </div>
