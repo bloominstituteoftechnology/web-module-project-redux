@@ -8,7 +8,7 @@ const AdditionalFeatures = ({additionalFeatures, dispatch}) => {
       {additionalFeatures.length ? (
         <ol type="1">
           {additionalFeatures.map(item => (
-            <AdditionalFeature key={item.id} feature={item} dispatch={dispatch}/>
+            <AdditionalFeature key={item.id} feature={item} dispatch={() => dispatch({type: "buy", payload: item})}/>
           ))}
         </ol>
       ) : (

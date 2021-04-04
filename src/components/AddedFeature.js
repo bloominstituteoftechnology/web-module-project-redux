@@ -4,7 +4,7 @@ const AddedFeature = ({feature, dispatch}) => {
   return (
     <li>
       {/* Add an onClick to run a function to remove a feature */}
-      <button onClicke={dispatch({type: "cancel", payload: feature})} className="button">X</button>
+      <button onClicke={dispatch()} className="button">X</button>
       {feature.name}
     </li>
   );

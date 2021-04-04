@@ -5,7 +5,7 @@ const AdditionalFeature = ({feature, dispatch}) => {
     <li>
       {/* Add an onClick that will let you add a feature to your car */}
       
-      <button onClick={dispatch({type: "buy", payload: feature})} className="button">Add</button>
+      <button onClick={dispatch()} className="button">Add</button>
       {feature.name} (+{feature.price})
     </li>
   );
