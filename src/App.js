@@ -12,9 +12,12 @@ function reducer(state, action) {
         ...state,
         car: {
           features: [...state.car.features, action.payload],
+          price: state.car.price,
+          name: state.car.name,
+          image: state.car.image,
         },
         additionalPrice: state.additionalPrice + action.payload.price,
-       }
+      }
     case "cancel":
       // remove the given feuture from the array
       return {
@@ -48,7 +51,16 @@ const App = () => {
     ]
   };
   const [state, dispatch] = useReducer(reducer, initialState);
-  console.log(state);
+  console.log(state, {
+    ...state,
+    car: {
+      features: [...state.car.features, state.additionalFeatures[0]],
+      price: state.car.price,
+      name: state.car.name,
+      image: state.car.image,
+    },
+    additionalPrice: state.additionalPrice + state.additionalFeatures[0].price,
+  })
   return (
     <div className="boxes">
       <div className="box">

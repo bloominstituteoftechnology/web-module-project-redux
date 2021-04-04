@@ -2,7 +2,7 @@ import React from 'react';
 
 import AddedFeature from './AddedFeature';
 
-const AddedFeatures = ({car, dispatch}) => {
+const AddedFeatures = ({ car, dispatch }) => {
   return (
     <div className="content">
       <h6>Added features:</h6>

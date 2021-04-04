@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Header = ({car}) => {
+const Header = ({ car }) => {
   return (
     <>
       <figure className="image is-128x128">
