@@ -6,7 +6,7 @@ const Movie = (props) => {
     const { push } = useHistory();
 
     const movies = [];
-    const movie = movies[id];
+    const movie = movies.find(movie=>movie.id===Number(id));
     
     return(<div className="modal-page col">
         <div className="modal-dialog">
