@@ -1,9 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 
-import 'bulma/css/bulma.css';
-import './styles.scss';
+import reducer from './reducers';
 
-const rootElement = document.getElementById('root');
-ReactDOM.render(<App />, rootElement);
+import App from './App'
+import { BrowserRouter as Router } from 'react-router-dom';
+import './index.css';
+
+ReactDOM.render(
+  <Router>
+      <App />
+  </Router>,
+  document.getElementById('root')
+);
