@@ -32,7 +32,7 @@ In this project, you take a fairly complex application used to search a movie da
 #### Connecting the Movie reducer
 > *Within the reducers folder is the file movieReducers.js. We have state already setup up here with some initial data. Let's connect that state to our component.*
 
-* [ ] In movieReducer.js, make sure that we are setting our state by default to initialState. Otherwise
+* [ ] In movieReducer.js, make sure that we are setting our state by default to initialState. Otherwise your state will not have the original structure it needs to function!
 
 * [ ] The MovieList component prints all of our movies to the screen. Use the connect method here to push the movies state value into props. Replace our static movie variable with that prop.
 
