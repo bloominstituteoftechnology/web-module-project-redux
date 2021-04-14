@@ -1,6 +1,7 @@
 import { ADD_ADDITIONAL_FEATURE } from '../actions'
 
 export const initialState = {
+    isWorking: true,
     additionalPrice: 0,
     car: {
         price: 26395,
