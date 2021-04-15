@@ -4,28 +4,25 @@ import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
-import {createStore} from 'redux';
-import {reducer} from './reducer';
 import {addFeature, removeFeature} from './Actions'
-export const store = createStore(reducer);
 
-const App = (props) => {
+export const App = (props) => {
 
   return (
     <div className="boxes">
       <div className="box">
-        <Header car={props.car} />
-        <AddedFeatures car={props.car} />
+        <Header/>
+        <AddedFeatures/>
       </div>
       <div className="box">
-        <AdditionalFeatures additionalFeatures={props.additionalFeatures} />
-        <Total car={props.car} additionalPrice={props.additionalPrice} />
+        <AdditionalFeatures/>
+        <Total/>
       </div>
     </div>
   );
 };
 
-const mapStateToProps = (state) => {
+export const mapStateToProps = (state) => {
   return {
       additionalPrice: 0,
       car: {
@@ -41,5 +38,5 @@ const mapStateToProps = (state) => {
         { id: 4, name: 'Rear spoiler', price: 250 }
       ]};
   };
-const ConnectedApp = connect(mapStateToProps, {addFeature, removeFeature})(App);
+const ConnectedApp = connect(mapStateToProps, {})(App);
 export default ConnectedApp;
