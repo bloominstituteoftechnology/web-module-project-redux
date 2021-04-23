@@ -1,5 +1,6 @@
-//import React, { useState, useReducer } from 'react' - Do I need to do this here?
-
+//IN REDUX WE DO NOT USE useReducer
+import { ADD_FEATURE, REMOVE_FEATURE } from '../actions/action'; //importing the variable names of our actions
+//.. to go up a folder, 1 dot when in the folder already. had to go out of folder, leave reducer, go into actions
 
 //Here we moved over the state to be initialized here in the reducer
 const initialState = {
@@ -23,28 +24,36 @@ const initialState = {
     switch (action.type) {
       case ADD_FEATURE ://add_feature//
         console.log("ADD_FEATURE action running in reducer file");
-        const newFeature = {feature: action.payload};
+        
         return {
           ...state,
-          feature: [...state.features, newFeature]
+          car: { 
+            ...state.car, //b/c we just want to change features
+            features : [...state.car.features, action.payload]},
+            additionalPrice: state.additionalPrice + action.payload.price,
+            additionalFeatures: state.additionalFeatures.filter(item => {
+              return (
+                item !== action.payload //if our item is NOT our argument, then show the ones we did NOT click on
+              )
+            })
+            //this 'features' is NOT the parameter from action, 'payload' is what that 'feature' param is going to be
           
         };
       
-        case REMOVE_FEATURE://remove_feature//
-          console.log("REMOVE_FEATURE action running in reducer file")
-          const takeAway = {op: action.payload}
-          return {
+        case REMOVE_FEATURE :
+          return{
             ...state,
-            op: [...state.features, takeAway]
-            
-          };
-
-        case ://update_total//
-          console.log("update_total action running in reducer file")
-          return {
-            ...state,
-            //update the total LOGIC
-          };
+            car: {
+              ...state.car,
+              features: state.car.features.filter(item => {
+                return(
+                  item !== action.payload
+                )
+              })
+            },
+            additionalPrice: state.additionalPrice - action.payload.price,
+            additionalFeatures: [...state.additionalFeatures, action.payload]
+          }
         default:
           return state;
     }
