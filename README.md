@@ -61,13 +61,13 @@ Connect components 👉 Add events and event handlers in UI 👉 Build action cr
 write the reducer logic for the actions 👉 Rinse and repeat
 ```
 
-#### _MVP Requirements:_
+#### _MVP Requirements:_ *IN PROGRESS*
 
-- Move the given state to the reducer as the initial state for the Redux store.
-- Set up the Redux flow
-- User should be able to add features to their car
-- User should be able to remove added features from their car
-- Total should update as user adds and removes features from their car
+-[x] Move the given state to the reducer as the initial state for the Redux store.
+- [x]Set up the Redux flow
+- [x]User should be able to add features to their car
+- [x]User should be able to remove added features from their car
+-[x] Total should update as user adds and removes features from their car
 
 ### Task 3: Stretch Problems
 

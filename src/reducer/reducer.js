@@ -1,3 +1,6 @@
+//import React, { useState, useReducer } from 'react' - Do I need to do this here?
+
+
 //Here we moved over the state to be initialized here in the reducer
 const initialState = {
     additionalPrice: 0,
@@ -18,25 +21,29 @@ const initialState = {
   //Here we are hooking up the Redux flow
   export const reducer = (state = initialState, action) => {
     switch (action.type) {
-      case ://add_feature//
-        console.log("add_feature action running in reducer file")
+      case ADD_FEATURE ://add_feature//
+        console.log("ADD_FEATURE action running in reducer file");
+        const newFeature = {feature: action.payload};
         return {
           ...state,
-          //add a feature
+          feature: [...state.features, newFeature]
+          
         };
       
-        case ://remove_feature//
-          console.log("remove_feature action running in reducer file")
+        case REMOVE_FEATURE://remove_feature//
+          console.log("REMOVE_FEATURE action running in reducer file")
+          const takeAway = {op: action.payload}
           return {
             ...state,
-            //remove a feature
+            op: [...state.features, takeAway]
+            
           };
 
         case ://update_total//
           console.log("update_total action running in reducer file")
           return {
             ...state,
-            //update the total
+            //update the total LOGIC
           };
         default:
           return state;
