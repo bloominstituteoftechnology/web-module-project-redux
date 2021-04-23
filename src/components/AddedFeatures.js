@@ -1,14 +1,14 @@
 import React from 'react';
-
+import { connect } from 'react-redux'; //Make sure to add this connect up here to hook up the mapStateToProps, in every component using mapstatetoprops or mapstatetodispatch
 import AddedFeature from './AddedFeature';
 
 const AddedFeatures = props => {
   return (
     <div className="content">
       <h6>Added features:</h6>
-      {props.car.features.length ? (
+      {props.features.length ? (
         <ol type="1">
-          {props.car.features.map(item => (
+          {props.features.map(item => (
             <AddedFeature key={item.id} feature={item} />
           ))}
         </ol>
@@ -19,4 +19,9 @@ const AddedFeatures = props => {
   );
 };
 
-export default AddedFeatures;
+const mapStateToProps = state => {
+  return {
+    features: state.car.features
+  }
+}
+export default connect(mapStateToProps)(AddedFeatures); //Add the connect here taking MapStatetoProps
