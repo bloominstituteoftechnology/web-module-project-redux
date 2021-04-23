@@ -43,17 +43,17 @@ This project was put together using create-react-app (CRA). You will not need to
 
 ### Task 2a:  _MVP Requirements:_
 
-**Step 1 - Planning 📝**
+**Step 1 - Planning 📝** *COMPLETE*
 
-- []Take a good amount of time to familiarize yourself with the project structure. Figure out what data you have and where it's being used (Pen and paper or a whiteboard will be your best friend here!)
--[] Plan out your state management structure as mentioned above. The only requirment is that you _must_ use Redux
--[]Write out the steps you think you'll need to complete this project. It seems silly, but doing this with every project will help you grow into a better developer a lot faster.
+- [x]Take a good amount of time to familiarize yourself with the project structure. Figure out what data you have and where it's being used (Pen and paper or a whiteboard will be your best friend here!)
+-[x] Plan out your state management structure as mentioned above. The only requirment is that you _must_ use Redux
+-[x]Write out the steps you think you'll need to complete this project. It seems silly, but doing this with every project will help you grow into a better developer a lot faster.
 - [X]Take note of the few comments throughout the app. They are there as little guides to nudge you in the right direction. You're welcome 😉
 
-**Step 2 - And... Action! 🎬**
+**Step 2 - And... Action! 🎬** *COMPLETE*
 
-- Time to get your hands on your keyboard. Look at the first step you wrote down and start implementing!
-- As you work through setting up redux, you can do it however you'd like. This is the flow that works for me:
+-[X] Time to get your hands on your keyboard. Look at the first step you wrote down and start implementing!
+-[X] As you work through setting up redux, you can do it however you'd like. This is the flow that works for me:
 
 ```text
 Set up "empty" reducer and initial state 👉 Set up store and Provider 👉
