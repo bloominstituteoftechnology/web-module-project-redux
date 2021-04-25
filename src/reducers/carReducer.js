@@ -19,7 +19,7 @@ export const initialState = {
 
 export const carReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "UPDATE_CARS":
+    case "UPDATE_CAR":
       return {
         ...state,
         title: action.payload,

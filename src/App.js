@@ -4,6 +4,7 @@ import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
+import { toggleEditing, updateCar } from "./actions"
 
 const App = () => {
   const state = {
@@ -22,6 +23,10 @@ const App = () => {
       { id: 4, name: 'Rear spoiler', price: 250 }
     ]
   };
+
+  const toggleEditingHandler = () => {
+    dispatchEvent(toggleEditing());
+  }
 
   return (
     <div className="boxes">
