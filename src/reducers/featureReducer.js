@@ -34,10 +34,11 @@ export const featureReducer = (state = initialState, action) => {
         ...state,
         car: {
           ...state.car,
-          features: [...state.car.features, action.payload],
+          features: [...state.car.features],
         },
         additionalPrice: state.additionalPrice - action.payload.price,
       };
+
     default:
       return state;
   }
