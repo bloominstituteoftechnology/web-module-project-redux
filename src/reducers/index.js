@@ -15,14 +15,17 @@ export const initialState = {
   ],
 };
 
-const reducer = (state, action) => {
-  //   switch (action.type) {
-  //       case ADD_FEATURE:
-  //         return {
-  //             ...state,
-  //             price: state.price
-  //         }
-  //   }
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    // case ADD_FEATURE:
+    //   return {
+    //     ...state,
+    //     price: state.price,
+    //   };
+
+    default:
+      return state;
+  }
 };
 
 export default reducer;

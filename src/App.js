@@ -1,5 +1,6 @@
 import React from "react";
 import { initialState } from "./reducers/index";
+import { connect } from "react-redux";
 
 import Header from "./components/Header";
 import AddedFeatures from "./components/AddedFeatures";
@@ -37,4 +38,10 @@ const App = () => {
   );
 };
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    additionalPrice: state.additionalPrice,
+  };
+};
+
+export default connect(mapStateToProps, {})(App);
