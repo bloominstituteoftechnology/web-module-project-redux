@@ -23,3 +23,5 @@ const FavoriteMovieList = (props) => {
 
 
 export default FavoriteMovieList;
+
+// * [ ] Connect the favorites state to the FavoriteMovieList component and test.
