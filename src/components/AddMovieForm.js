@@ -67,4 +67,4 @@ const AddMovieForm = (props) => {
     </div>);
 }
 
-export default AddMovieForm;
+export default connect(addMovie)(AddMovieForm);
