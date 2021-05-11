@@ -44,9 +44,9 @@ In this project, you take a fairly complex application used to search a movie da
 #### Connecting the Delete and Add Movie actions
 > *Looks like you got a good handle on mapping stateToProps! Now let's connect some actions.*
 
-* [ ] Note that the deleteMovie reducer case and action creator are already available.
+* [X] Note that the deleteMovie reducer case and action creator are already available.
 
-* [ ] **We can delete movies within the Movie Component.** Connect the deleteMovie action through the connect method.
+* [X] **We can delete movies within the Movie Component.** Connect the deleteMovie action through the connect method.
 
 * [ ] **Find the HTML element that should trigger a deletion in the movie component.** Create and connect the necessary event handlers to call deleteMovie on the current movie's id AND redirect the user using push('/movies').
 
