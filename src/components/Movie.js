@@ -10,10 +10,13 @@ const Movie = (props) => {
     const movies = props.movies;
     // console.log is not working //
     const movie = movies.find(movie=>movie.id===Number(id));
+
     const handleDelete = (e) => {
         props.deleteMovie(movie.id)
         push('/movies')
     }
+
+    
     
     return(<div className="modal-page col">
         <div className="modal-dialog">

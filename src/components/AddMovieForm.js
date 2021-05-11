@@ -22,6 +22,10 @@ const AddMovieForm = (props) => {
         });
     }
 
+    const handleAdd = (e) => {
+        props.addMovie(movie.id)
+    }
+
     const handleSubmit = (e) => {
     }
 
@@ -67,4 +71,4 @@ const AddMovieForm = (props) => {
     </div>);
 }
 
-export default AddMovieForm;
+export default connect( null, { addMovie } )(AddMovieForm);
