@@ -1,37 +1,48 @@
-import React from 'react';
+import React from "react";
 
-import Header from './components/Header';
-import AddedFeatures from './components/AddedFeatures';
-import AdditionalFeatures from './components/AdditionalFeatures';
-import Total from './components/Total';
+import { Route, Switch, Redirect } from "react-router-dom";
+import { connect } from 'react-redux';
 
-const App = () => {
-  const state = {
-    additionalPrice: 0,
-    car: {
-      price: 26395,
-      name: '2019 Ford Mustang',
-      image:
-        'https://cdn.motor1.com/images/mgl/0AN2V/s1/2019-ford-mustang-bullitt.jpg',
-      features: []
-    },
-    additionalFeatures: [
-      { id: 1, name: 'V-6 engine', price: 1500 },
-      { id: 2, name: 'Racing detail package', price: 1500 },
-      { id: 3, name: 'Premium sound system', price: 500 },
-      { id: 4, name: 'Rear spoiler', price: 250 }
-    ]
-  };
+import MovieList from './components/MovieList';
+import Movie from './components/Movie';
+
+import MovieHeader from './components/MovieHeader';
+
+import AddMovieForm from './components/AddMovieForm';
+import FavoriteMovieList from './components/FavoriteMovieList';
+
+const App = props => {
+  const displayFavorites = true;
 
   return (
-    <div className="boxes">
-      <div className="box">
-        <Header car={state.car} />
-        <AddedFeatures car={state.car} />
-      </div>
-      <div className="box">
-        <AdditionalFeatures additionalFeatures={state.additionalFeatures} />
-        <Total car={state.car} additionalPrice={state.additionalPrice} />
+    <div>
+      <nav className="navbar navbar-dark bg-dark">
+        <span className="navbar-brand" ><img width="40px" alt="" src="./Lambda-Logo-Red.png"/>Redux Module Project</span>
+      </nav>
+
+      <div className="container">
+        <MovieHeader/>
+        <div className="row ">
+          {displayFavorites && <FavoriteMovieList/>}
+        
+          <Switch>
+            <Route exact path="/movies/add">
+              <AddMovieForm />
+            </Route>
+
+            <Route path="/movies/:id">
+              <Movie />
+            </Route>
+
+            <Route path="/movies">
+              <MovieList/>
+            </Route>
+
+            <Route path="/">
+              <Redirect to="/movies"/>
+            </Route>
+          </Switch>
+        </div>
       </div>
     </div>
   );
