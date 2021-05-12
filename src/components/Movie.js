@@ -26,8 +26,6 @@ const Movie = (props) => {
         props.dispatch(removeFavorite(id));
     };
 
-    console.log('toggle', props.displayFavorites);
-
     return(<div className="modal-page col">
         <div className="modal-dialog">
             <div className="modal-content">
@@ -68,7 +66,6 @@ const Movie = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state.favorite);
     return({
         movies: state.movie.movies,
         displayFavorites: state.favorite.displayFavorites

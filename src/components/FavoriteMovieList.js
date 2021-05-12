@@ -18,7 +18,6 @@ const FavoriteMovieList = (props) => {
         <h5>Favorite Movies</h5>
         {
             favorites.map(movie=>{
-                console.log('movie', movie);
                 return <div key={movie.id}>
                     <Link className="btn btn-light savedButton" to={`/movies/${movie.id}`}>
                         {movie.title}

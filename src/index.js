@@ -10,7 +10,6 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
 
 const store = createStore(rootReducer);
-console.log(store.getState());
 
 ReactDOM.render(
   <Router>
