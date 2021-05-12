@@ -7,6 +7,8 @@ import { Link, useHistory } from 'react-router-dom';
 const AddMovieForm = (props) => {
     const { push } = useHistory();
 
+    
+
     const [movie, setMovie] = useState({
         title: "",
         director: "",
