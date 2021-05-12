@@ -34,6 +34,10 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         additionalPrice: 0,
+        car: {
+          ...state.car,
+          features: [],
+        },
       };
 
     default:

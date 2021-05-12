@@ -12,7 +12,10 @@ const App = (props) => {
     <div className="boxes">
       <div className="box">
         <Header car={props.car} additionalPrice={props.additionalPrice} />
-        <AddedFeatures car={props.car} />
+        <AddedFeatures
+          car={props.car}
+          additionalFeatures={props.additionalFeatures}
+        />
       </div>
       <div className="box">
         <AdditionalFeatures additionalFeatures={props.additionalFeatures} />
