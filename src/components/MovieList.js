@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { connect } from "react-redux";
 import MovieListItem from './MovieListItem';
 import MovieFooter from './MovieFooter';
 
@@ -21,7 +21,7 @@ const MovieList = (props)=> {
 
                 <tbody>
                     {
-                        movies.map(movie=><MovieListItem key={movie.id} movie={movie}/>)
+                        props.movies.map(movie=><MovieListItem key={movie.id} movie={movie}/>)
                     }
                 </tbody>
             </table>
@@ -30,5 +30,10 @@ const MovieList = (props)=> {
         </div>
     );
 }
+const mapStateToProps = (state)=>{
+    return {
+        movies: state.movie.movies
+    }
+}
 
-export default MovieList;
+export default connect(mapStateToProps)(MovieList);
