@@ -3,13 +3,14 @@ import { addFeature } from "../actions/index";
 import { connect } from "react-redux";
 
 const AdditionalFeature = (props) => {
-  const handleClick = (feature) => {
-    props.addFeature(feature);
+  const handleClick = () => {
+    props.addFeature(props.feature.price, props.feature.name);
   };
+
   return (
     <li>
       {/* Add an onClick that will let you add a feature to your car */}
-      <button className="button" onClick={() => handleClick(1000)}>
+      <button className="button" onClick={handleClick}>
         Add
       </button>
       {props.feature.name} (+{props.feature.price})
@@ -17,4 +18,8 @@ const AdditionalFeature = (props) => {
   );
 };
 
-export default connect(null, { addFeature })(AdditionalFeature);
+const mapStateToProps = (state) => {
+  return state;
+};
+
+export default connect(mapStateToProps, { addFeature })(AdditionalFeature);
