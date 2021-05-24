@@ -3,7 +3,7 @@ import { useParams, useHistory } from 'react-router-dom';
 
 const Movie = (props) => {
     const { id } = useParams();
-    const { push } = useHistory();
+    // const { push } = useHistory();
 
     const movies = [];
     const movie = movies.find(movie=>movie.id===Number(id));
