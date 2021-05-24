@@ -57,7 +57,7 @@ const Movie = (props) => {
 
                         <section>
                             {props.displayFavorites && (
-                            <span className="m-2 btn btn-dark" onClick={() => (movie)}>Favorite</span>)}
+                                <span className="m-2 btn btn-dark" onClick={() => (movie)}>Favorite</span>)}
                             {/* {props.removeFavorites && (<span className="m-2 btn btn-dark" onClick={() => removeFavorite(movie)}>Remove Favorite</span>)} */}
 
                             <span className="delete" onClick={() => { handleDelete(movie.id) }}><input type="button" className="m-2 btn btn-danger" value="Delete" /></span>
