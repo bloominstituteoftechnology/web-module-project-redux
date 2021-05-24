@@ -1,4 +1,4 @@
-import { ADD_MOVIE, DELETE_MOVIE } from '../actions/movieActions.js';
+import { DELETE_MOVIE, ADD_MOVIE } from '../actions/movieActions.js';
 import movies from './../data.js';
 
 const initialState = {
@@ -17,6 +17,7 @@ const reducer = (state = initialState, action) => {
         case ADD_MOVIE:
             state.movies.push(action.payload);
             return {
+                ...state,
                 movies: [...state.movies]
             }
 
