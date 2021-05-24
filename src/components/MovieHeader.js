@@ -2,17 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-const mapStatetoProps = (state) => {
-    return ({
-        appTitle: state.movie.appTitle,
-    })
-}
-
 const MovieHeader = (props) => {
     const appTitle = "";
     const displayFavorites = true;
-
-
     
     return(<div className="table-title">
         <div className="row">
@@ -27,5 +19,11 @@ const MovieHeader = (props) => {
         </div>
     </div>);
 }
+
+const mapStatetoProps = (state) => {
+    return ({
+        appTitle: state.appTitle,
+    })
+} 
 
 export default connect(mapStatetoProps, {})(MovieHeader);
