@@ -48,4 +48,5 @@ const App = props => {
   );
 };
 
-export default App;
+//export default App;
+export default connect(null,{})(App)
