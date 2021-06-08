@@ -27,16 +27,16 @@ In this project, you take a fairly complex application used to search a movie da
 #### Setup Redux
 > *The DOM and movie reducer has been provided for you, but it's up to to connect it to redux...*
 
-* [ ] In index.js, make use of the createStore method and Provider component to link your App to redux.
+* [x] In index.js, make use of the createStore method and Provider component to link your App to redux.
 
 #### Connecting the Movie reducer
 > *Within the reducers folder is the movieReducers file. We have the state already setup it up here with some initial data. Let's connect that state to our component.*
 
-* [ ] **In movieReducer.js, make sure that we are setting our state by default to initialState.** Otherwise your state will not have the original structure it needs to function!
+* [x] **In movieReducer.js, make sure that we are setting our state by default to initialState.** Otherwise your state will not have the original structure it needs to function!
 
-* [ ] **The MovieList component prints all of our movies to the screen.** Use the connect method here to map the movies state value into props. Replace our static movie variable with that prop.
+* [x] **The MovieList component prints all of our movies to the screen.** Use the connect method here to map the movies state value into props. Replace our static movie variable with that prop.
 
-* [ ] **The Movie component needs to access our list of movies to function.** Map movies to props here as well.
+* [x] **The Movie component needs to access our list of movies to function.** Map movies to props here as well.
 
 * [ ] **Finally, MovieHeader uses appTitle to display the title text.** Connect this component to appTitle and test appTitle is correctly displayed in your app.
 
