@@ -2,7 +2,7 @@ import { TOGGLE_FAVORITES, ADD_FAVORITE, REMOVE_FAVORITE } from '../actions/movi
  
 
 export const initialState = {
-    favorites: [],
+    favorites: [{}],
     displayFavorites: true
 }
 
@@ -23,7 +23,7 @@ const favoritesReducer = (state = initialState, action) => {
         case REMOVE_FAVORITE:
             return {
                 ...state,
-                favorites: [...state.favorites]
+                favorites: [state.favorites.filter(item=>(action.payload !== item.id))]
             }
         default: 
             return state;
