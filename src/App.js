@@ -10,7 +10,7 @@ import MovieHeader from './components/MovieHeader';
 
 import AddMovieForm from './components/AddMovieForm';
 import FavoriteMovieList from './components/FavoriteMovieList';
-
+//comment to make initial commit
 const App = props => {
   const displayFavorites = true;
 
