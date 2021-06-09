@@ -6,6 +6,18 @@ test('App component renders without crashing', () => {
   render(<App />);
 });
   
+    
+ 
+
+  
+ 
+  
+    
+ 
+
+  
+ 
+  
   
   
     
@@ -22,17 +34,29 @@ test('App component renders without crashing', () => {
   
     
   
+    
+ 
+
+  
+ 
   
     
+ 
+
   
-  
-    
-  
-  
-    
-  
+ 
   
     
+ 
+
+  
+ 
+  
+    
+ 
+
+  
+ 
   
   
     
