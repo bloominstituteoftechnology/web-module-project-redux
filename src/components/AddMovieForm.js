@@ -23,6 +23,10 @@ const AddMovieForm = (props) => {
     }
 
     const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(movie);
+        props.addMovie(movie);
+        push('/movies')
     }
 
     const { title, director, genre, metascore, description } = movie;
