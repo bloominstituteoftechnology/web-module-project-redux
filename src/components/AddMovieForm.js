@@ -18,7 +18,8 @@ const AddMovieForm = (props) => {
     const handleChange = (e) => {
         setMovie({
             ...movie,
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
+            id: Date.now()
         });
     }
 

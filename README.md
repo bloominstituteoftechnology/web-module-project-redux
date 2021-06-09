@@ -79,7 +79,7 @@ In this project, you take a fairly complex application used to search a movie da
 1. Add in reducer cases, action creators and event handler code for the following actions:
   - toggleFavorites : Switches the displayFavorites state value between true and false. When displayFavorites is true, the favorite button does not show on the Movie page.
   
-  - addFavorites: Adds in a new movie object into the favorites list.
+  x- addFavorites: Adds in a new movie object into the favorites list.
   - removeFavorite: Removes a movie Object from the favorites list with an id passed in.
 
 ### Stretch goals
