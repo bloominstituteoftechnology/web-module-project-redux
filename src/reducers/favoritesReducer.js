@@ -1,20 +1,27 @@
-import movies from './../data.js';
-
-const initialState = {
-    favorites: [{movies}],
+export const initialState = {
+    // favorites: [{
+    //     id: '',
+    //     title: '',
+    //     director: '',
+    //     metascore: '',
+    //     genre: '',
+    //     description: ''
+    // }],
+    favorites: [{test: ''}],
     displayFavorites: false
-};
+}
 
-const reducer = (state = initialState, action) => {
-    switch (action.type) {
+const favoritesReducer = (state = initialState, action) => {
+    // switch (action.type) {
         // case : 
         //     return {
         //         ...favorites,
 
         //     }
-        default: 
-            return state;
-    }
+    //     default: 
+    //         return state;
+    // }
+    return state;
 }
 
 
@@ -24,4 +31,4 @@ const reducer = (state = initialState, action) => {
 //   - addFavorites: Adds in a new movie object into the favorites list.
 //   - removeFavorite: Removes a movie Object from the favorites list with an id passed in.
 
-export default reducer;
+export default favoritesReducer;

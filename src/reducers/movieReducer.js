@@ -1,7 +1,7 @@
 import { ADD_MOVIE, DELETE_MOVIE } from '../actions/movieActions.js';
 import movies from './../data.js';
 
-const initialState = {
+export const initialState = {
     movies: movies,
     appTitle: "IMDB Movie Database"
 }
