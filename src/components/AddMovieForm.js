@@ -19,13 +19,11 @@ const AddMovieForm = (props) => {
         setMovie({
             ...movie,
             [e.target.name]: e.target.value,
-            id: Date.now()
         });
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(movie);
         props.addMovie(movie);
         push('/movies')
     }
@@ -72,7 +70,5 @@ const AddMovieForm = (props) => {
     </div>);
 }
 
-
 export default connect(null, { addMovie })(AddMovieForm);
 
-// export default AddMovieForm;

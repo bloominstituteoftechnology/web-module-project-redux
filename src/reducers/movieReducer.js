@@ -10,13 +10,19 @@ const reducer = (state = initialState, action) => {
     switch(action.type) {
         case DELETE_MOVIE:
             return {
+                ...state,
                 movies: state.movies.filter(item=>(action.payload !== item.id))
             }
         case ADD_MOVIE:
-            console.log("hitting reducer")
+            // console.log("hitting reducer")
+            const newMovie = {
+                ...action.payload,
+                id: Date.now()
+            };
+
             return {
                 ...state, 
-                movies: [...movies, action.payload]
+                movies: [...state.movies, newMovie]
             }   
         default:
             return state;

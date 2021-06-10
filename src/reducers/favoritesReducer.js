@@ -1,15 +1,14 @@
-import { TOGGLE_FAVORITES, ADD_FAVORITE, REMOVE_FAVORITE } from '../actions/movieActions.js';
+import { TOGGLE_FAVORITES, ADD_FAVORITE, REMOVE_FAVORITE } from '../actions/favoritesActions.js';
  
-
 export const initialState = {
-    favorites: [{}],
+    // TEST
+    // favorites: [{title: "Movie", id: 1}],
+    favorites: [],
     displayFavorites: true
 }
 
-// console.log("FAVORITES:", initialState.favorites)
-
 const favoritesReducer = (state = initialState, action) => {
-    switch (action.type) {
+    switch(action.type) {
         case TOGGLE_FAVORITES:
             return {
                 ...state,
@@ -18,22 +17,16 @@ const favoritesReducer = (state = initialState, action) => {
         case ADD_FAVORITE:
             return {
                 ...state,
-                favorites: [...state.favorites, {title: action.payload}]
+                favorites: [...state.favorites, action.payload]
             }
         case REMOVE_FAVORITE:
             return {
                 ...state,
-                favorites: [state.favorites.filter(item=>(action.payload !== item.id))]
+                favorites: state.favorites.filter(item=>(item.id !== action.payload))
             }
         default: 
             return state;
      }
 }
-
-// Add in reducer cases, action creators and event handler code for the following actions:
-//   - toggleFavorites : Switches the displayFavorites state value between true and false. When displayFavorites is true, the favorite button does not show on the Movie page.
-  
-//   - addFavorites: Adds in a new movie object into the favorites list.
-//   - removeFavorite: Removes a movie Object from the favorites list with an id passed in.
 
 export default favoritesReducer;
