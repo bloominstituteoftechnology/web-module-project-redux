@@ -6,5 +6,5 @@ export const deleteMovie = (id)=>{
 }
 
 export const addMovie = (id)=>{
-    return({type: ADD_MOVIE, payload:id});
+    return({type: ADD_MOVIE});
 }
