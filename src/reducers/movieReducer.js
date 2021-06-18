@@ -14,11 +14,12 @@ const reducer = (state = initialState, action) => {
             }
         case ADD_MOVIE:
             const newMovie = {
-                title: action.payload,
-                director: action.payload,
-                genre: action.payload,
-                metascore: action.payload,
-                description: action.payload
+                id: Number(+5),
+                title: state.title,
+                director: state.director,
+                genre: state.genre,
+                metascore: state.metascore,
+                description: state.description
             }
             return {
                 ...state,

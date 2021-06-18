@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 const MovieList = (props)=> {
     const movies = [];
-    
+
     return (
         <div className="col">
             <table className="table table-striped table-hover">
@@ -38,4 +38,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {})(MovieList);
+export default connect(mapStateToProps)(MovieList);
