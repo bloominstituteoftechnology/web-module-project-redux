@@ -11,6 +11,10 @@ body {
   min-width:70%;
 }
 
+.app-h2 {
+  color: rgb(189, 44, 19);
+}
+
 .footer {
   background: white;
   padding: 1em;
@@ -27,7 +31,7 @@ body {
 }
 
 .view .material-icons:hover {
-	color:black;
+	color:rgb(0, 0, 0);
 }
 
 .table-title {        

@@ -5,7 +5,7 @@ import MovieFooter from './MovieFooter';
 import { connect } from 'react-redux';
 
 const MovieList = (props)=> {
-    const movies = [];
+    const movies = props.movies;
 
     return (
         <div className="col">

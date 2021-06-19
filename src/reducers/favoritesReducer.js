@@ -1,5 +1,4 @@
-import { ADD_FAVORITE, DELETE_FAVORITE, TOGGLE_FAVORITES } from '../actions/movieActions.js';
-import movies from './../data.js';
+import { ADD_FAVORITE, DELETE_FAVORITE, TOGGLE_FAVORITES } from '../actions/favoritesActions';
 
 const initialState = {
     favorites: [],
@@ -10,27 +9,20 @@ const favoritesReducer = (state = initialState, action) => {
     switch(action.type) {
         case DELETE_FAVORITE:
             return {
+                ...state,
                 favorites: state.favorites.filter(item=>(action.payload !== item.id))
             }
         case ADD_FAVORITE:
-            // const newFavorite = {
-            //     id: state.id,
-            //     title: state.title,
-            //     director: state.director,
-            //     genre: state.genre,
-            //     metascore: state.metascore,
-            //     description: state.description
-            // }
+            console.log(action.payload)
             return {
-                // ...state,
-                // favorites: [...state.favorites, newFavorite]
-                favorites: state.favorites.filter(item=>(action.payload === item.id))
+                ...state,
+                favorites: [...state.favorites, action.payload]
             }
 
         case TOGGLE_FAVORITES:
             console.log("toggle favorites button in the favoritesReducer");
             return {
-                ...state.favorites,
+                ...state,
                 displayFavorites: !state.displayFavorites
             }
         default:
