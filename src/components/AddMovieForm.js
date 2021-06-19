@@ -3,6 +3,7 @@ import { addMovie } from './../actions/movieActions';
 import { connect } from 'react-redux';
 
 import { Link, useHistory } from 'react-router-dom';
+import movies from '../data';
 
 const AddMovieForm = (props) => {
     const { push } = useHistory();
@@ -16,6 +17,7 @@ const AddMovieForm = (props) => {
     });
 
     const handleChange = (e) => {
+        console.log(movie)
         setMovie({
             ...movie,
             [e.target.name]: e.target.value
@@ -23,7 +25,10 @@ const AddMovieForm = (props) => {
     }
 
     const handleSubmit = (e) => {
-        props.addMovie(e.movie);
+        e.preventDefault();
+        console.log(movie);
+        props.addMovie(movie);
+        console.log(movies);
         push('/movies/')
     }
 
@@ -69,11 +74,11 @@ const AddMovieForm = (props) => {
     </div>);
 }
 
-const mapStateToProps = (state) => {
-    return {
-        movies: state.movies
-    }
-}
+// const mapStateToProps = (state) => {
+//     return {
+//         movie: state.movie
+//     }
+// }
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -81,4 +86,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddMovieForm);
+export default connect(null, mapDispatchToProps)(AddMovieForm);
