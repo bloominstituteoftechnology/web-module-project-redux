@@ -13,9 +13,20 @@ const favoritesReducer = (state = initialState, action) => {
                 favorites: state.favorites.filter(item=>(action.payload !== item.id))
             }
         case ADD_FAVORITE:
+            // const newFavorite = {
+            //     id: state.id,
+            //     title: state.title,
+            //     director: state.director,
+            //     genre: state.genre,
+            //     metascore: state.metascore,
+            //     description: state.description
+            // }
             return {
-                favorites: state.favorites.filter(item => (action.payload === item.id))
+                // ...state,
+                // favorites: [...state.favorites, newFavorite]
+                favorites: state.favorites.filter(item=>(action.payload === item.id))
             }
+
         case TOGGLE_FAVORITES:
             console.log("toggle favorites button in the favoritesReducer");
             return {

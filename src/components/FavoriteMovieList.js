@@ -13,8 +13,8 @@ const FavoriteMovieList = (props) => {
         {
             favorites.map(movie=>{
                 return <div key={movie.id}>
-                    <Link className="btn btn-light savedButton" to={`/movies/${props.movie.id}`}>
-                        {props.movie.title}
+                    <Link className="btn btn-light savedButton" to={`/movies/${movie.id}`}>
+                        {movie.title}
                         <span><span class="material-icons">remove_circle</span></span>
                     </Link> 
                 </div>

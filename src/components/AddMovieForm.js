@@ -28,8 +28,10 @@ const AddMovieForm = (props) => {
         e.preventDefault();
         console.log(movie);
         props.addMovie(movie);
+        // console.log(movies);
+        push('/movies/');
         console.log(movies);
-        push('/movies/')
+        console.log(movie)
     }
 
     const { title, director, genre, metascore, description } = movie;
@@ -76,7 +78,7 @@ const AddMovieForm = (props) => {
 
 // const mapStateToProps = (state) => {
 //     return {
-//         movie: state.movie
+//         movie: state.movieList.movie
 //     }
 // }
 
