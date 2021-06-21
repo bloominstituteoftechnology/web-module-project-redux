@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 import { toggleFavorite } from '../actions/favoritesActions';
 
 const MovieHeader = (props) => {
-    const { appTitle } = props;
-    const displayFavorites = props.displayFavorites
+    const { appTitle, displayFavorites, toggleFavorites } = props;
  
 
     const handleToggle = () => {
@@ -16,7 +15,7 @@ const MovieHeader = (props) => {
     return(<div className="table-title">
         <div className="row">
         <div className="col-sm-6">
-            <h2>{appTitle}</h2>
+            <h2>{props.appTitle}</h2>
         </div>
         <div className="col-sm-6 headerBar">
             <div onClick={handleToggle} className="btn btn-sm btn-primary" ><span>{ displayFavorites ? "Hide" : "Show"} Favorites</span></div>
@@ -29,9 +28,8 @@ const MovieHeader = (props) => {
 
 const mapStateToProps = (props) => {
     return {
-        movies: props.movies,
-        appTitle: props.appTitle, 
-        displayFavorites: props.displayFavorites
+        appTitle: props.movie.appTitle, 
+        displayFavorites: props.favorites.displayFavorites
     }
 }
 

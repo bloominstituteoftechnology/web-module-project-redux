@@ -8,22 +8,22 @@ const Movie = (props) => {
     const { id } = useParams();
     const { push } = useHistory();
 
-    const { movies, displayFavorites, addFavorite } = props;
-    const movie = movies.find(movie=>movie.id===Number(id));
+    const { movies, displayFavorites, deleteMovie, addFavorite } = props;
+    const movie = movies.find(movie => movie.id === Number(id));
 
     const handleDelete = () => {
-        props.deleteMovie(movie.id);
-        push('/movies')
+        deleteMovie(movie.id);
+        push('/movies');
     }
 
     const handleAdd = () => {
         addFavorite(movie)
     }
-    
-    return(<div className="modal-page col">
+
+    return (<div className="modal-page col">
         <div className="modal-dialog">
             <div className="modal-content">
-                <div className="modal-header">						
+                <div className="modal-header">
                     <h4 className="modal-title">{movie.title} Details</h4>
                 </div>
                 <div className="modal-body">
@@ -47,10 +47,10 @@ const Movie = (props) => {
                                 <p><strong>{movie.description}</strong></p>
                             </div>
                         </section>
-                        
+
                         <section>
                             {displayFavorites && <span onClick={handleAdd} className="m-2 btn btn-dark">Favorite</span>}
-                            <span onClick={() => {handleDelete(id)}} className="delete"><input type="button" className="m-2 btn btn-danger" value="Delete"/></span>
+                            <span className="delete"><input onClick={() => handleDelete(id)} type="button" className="m-2 btn btn-danger" value="Delete" /></span>
                         </section>
                     </div>
                 </div>
@@ -61,8 +61,8 @@ const Movie = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        movies: state.movies,
-        displayFavorites: state.displayFavorites
+        movies: state.movie.movies,
+        displayFavorites: state.favorites.displayFavorites
 
     }
 }
@@ -75,6 +75,10 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-  
+const mapActionsToProps = {
+    deleteMovie,
+    addFavorite
+};
 
-export default connect(mapStateToProps, mapDispatchToProps) (Movie);
+
+export default connect(mapStateToProps, { deleteMovie, addFavorite })(Movie);
