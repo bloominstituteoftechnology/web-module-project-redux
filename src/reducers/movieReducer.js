@@ -30,6 +30,3 @@ const reducer = (state = initialState, action) => {
 
 
 export default reducer;
-
-// * [ ] Add in an ADD_MOVIE case to movieReducer.js.
-// * [ ] Make this new case return a version of state with new movie values passed in through the payload.
