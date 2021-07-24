@@ -7,8 +7,9 @@ import App from './App'
 import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
 
+
 const store = createStore(reducer)
-console.log(store);
+console.log(reducer);
 
 ReactDOM.render(
   <Provider store={store}>
