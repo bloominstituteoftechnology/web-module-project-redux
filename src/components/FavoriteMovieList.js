@@ -13,7 +13,7 @@ const FavoriteMovieList = (props) => {
     return (<div className="col-xs savedContainer">
         <h5>Favorite Movies</h5>
         {
-            props.favorites.map(movie=>{
+            favorites.map(movie=>{
                 return <div key={movie.id}>
                     <Link className="btn btn-light savedButton" to={`/movies/${movie.id}`}>
                         {movie.title}

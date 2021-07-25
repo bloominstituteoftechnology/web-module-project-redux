@@ -9,7 +9,7 @@ const Movie = (props) => {
     const { push } = useHistory();
 
     const { movies, displayFavorites, deleteMovie, addFavorite } = props;
-    const movie = props.movies.find(movie=>movie.id===Number(id));
+    const movie = movies.find(movie=>movie.id===Number(id));
 
     const handleDeleteClick = () => {
         deleteMovie(movie.id);
@@ -71,4 +71,4 @@ const mapActionToProps = {
     addFavorite
 };
 
-export default connect(mapStateToProps, { deleteMovie, addFavorite })(Movie);
+export default connect(mapStateToProps, mapActionToProps)(Movie);
