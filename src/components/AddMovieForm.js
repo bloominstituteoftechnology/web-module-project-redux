@@ -23,7 +23,11 @@ const AddMovieForm = (props) => {
     }
 
     const handleSubmit = (e) => {
+        e.preventDefault()
+        props.addMovie(movie) // new slice of state created above
+        push('/movies')
     }
+
 
     const { title, director, genre, metascore, description } = movie;
     return(<div className="col">
@@ -67,4 +71,10 @@ const AddMovieForm = (props) => {
     </div>);
 }
 
-export default AddMovieForm;
+const mapStateToProps = state => {
+    return {
+        movies: state.movies
+    }
+}
+
+export default connect(mapStateToProps, {addMovie})(AddMovieForm);
