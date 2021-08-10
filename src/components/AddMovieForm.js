@@ -25,7 +25,9 @@ const AddMovieForm = (props) => {
     }
 
     const handleSubmit = (e) => {
-        dispatch.addMovie(movie);
+        console.log(addMovie(movie))
+        e.preventDefault();
+        dispatch(addMovie(movie));
         push("/movies/")
     }
 

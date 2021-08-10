@@ -16,12 +16,12 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 movies:[...state.movies,
-                {title: action.payload,
-                director: action.payload,
-                genre: action.payload,
-                metascore: action.payload,
-                description:action.payload,
-                id: action.payload}]
+                {title: action.payload.title,
+                director: action.payload.director,
+                genre: action.payload.genre,
+                metascore: action.payload.metascore,
+                description: action.payload.description,
+                id: action.payload.id}]
             }
         default:
             return state;
