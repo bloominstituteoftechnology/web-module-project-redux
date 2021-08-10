@@ -4,8 +4,8 @@ import { boolean } from "yargs";
 
 
 const initialState ={
-    favorites: [movies],
-    displayFavorites: "false"
+    favorites: [],
+    displayFavorites: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -17,7 +17,7 @@ const reducer = (state = initialState, action) => {
         case ADD_FAV:
             return{
                 ...state,
-                favorites:
+                favorites:[ ...state.favorites, action.payload]
             }
         default:
             return state;
