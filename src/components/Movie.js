@@ -7,8 +7,8 @@ import {  toggleFavorite,addFavorites } from '../actions/movieActions';
 const Movie = (props) => {
     const { id } = useParams();
     const { push } = useHistory();
-    const handleDelete = () =>{
-        props.deleteMovie();
+    const handleDelete = (id) =>{
+        props.deleteMovie(id);
         push('/movies');
     }
     const handleFavorite = () =>{
@@ -53,7 +53,7 @@ const Movie = (props) => {
                         
                         <section>
                             { !props.displayFavorites ? <span className="m-2 btn btn-dark" onClick={handleFavorite}>Favorite</span> : <span></span>}
-                            <span className="delete"><input type="button" className="m-2 btn btn-danger" value="Delete" onClick={handleDelete}/></span>
+                            <span className="delete"><input type="button" className="m-2 btn btn-danger" value="Delete" onClick={()=>handleDelete(movie.id)}/></span>
                         </section>
                     </div>
                 </div>
