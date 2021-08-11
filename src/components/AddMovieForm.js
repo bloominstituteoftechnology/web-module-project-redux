@@ -7,11 +7,6 @@ import { Link, useHistory } from 'react-router-dom';
 const AddMovieForm = (props) => {
     const { push } = useHistory();
 
-    // const addHandler = (movie) =>{
-    //     props.addMovie(movie)
-    //     push('/movies')
-    // }
-
     const [movie, setMovie] = useState({
         title: "",
         director: "",
@@ -28,8 +23,9 @@ const AddMovieForm = (props) => {
     }
 
     const handleSubmit = (e) => {
+        e.preventDefault()
         console.log(movie)
-        props.addMovie(movie)
+        props.addMovie({...movie, id: Date.now()});
         push('/movies')
     }
 
