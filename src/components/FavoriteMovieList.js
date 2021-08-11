@@ -8,8 +8,8 @@ const FavoriteMovieList = (props) => {
     const {id} = useParams();
     const favorites = [];
     
-    const delHandler = () =>{
-        props.deleteFavorites()
+    const delHandler = (id) =>{
+        props.deleteFavorites(id)
     }
     
     
@@ -20,7 +20,7 @@ const FavoriteMovieList = (props) => {
                 return <div key={movie.id}>
                     <Link className="btn btn-light savedButton" to={`/movies/${movie.id}`}>
                         {movie.title}
-                        <span><span class="material-icons" onClick={delHandler}>remove_circle</span></span>
+                        <span><span class="material-icons" onClick={()=>delHandler(movie.id)}>remove_circle</span></span>
                     </Link> 
                 </div>
             })
