@@ -1,4 +1,4 @@
-import { TOGGLE_FAVORITES } from "./../actions/favoriteActions.js";
+import { TOGGLE_FAVORITES, ADD_FAVORITE } from "./../actions/favoriteActions.js";
 
 const initialState = {
     favorites: [],
@@ -11,6 +11,10 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state, displayFavorites: !state.displayFavorites
             }
+        // case ADD_FAVORITE:
+        //     return {
+
+        //     }
         default:
             return state;
     }
