@@ -1,23 +1,29 @@
 import React from "react";
+import { connect } from "react-redux";
 
+import { deleteFavorites } from "./../actions/favoritesActions";
 import { Link } from "react-router-dom";
 
 const FavoriteMovieList = (props) => {
-  const favorites = [];
+  const { favorites, removeFavorite } = props;
 
+  const handleClick = (id) => {
+    removeFavorite(id);
+  };
   return (
     <div className="col-xs savedContainer">
       <h5>Favorite Movies</h5>
       {favorites.map((movie) => {
         return (
           <div key={movie.id}>
-            <Link
-              className="btn btn-light savedButton"
-              to={`/movies/${movie.id}`}
-            >
+            <Link className="btn btn-light savedButton" to={`/movies/`}>
               {movie.title}
-              <span>
-                <span class="material-icons">remove_circle</span>
+              <span
+                onClick={() => {
+                  handleClick(movie.id);
+                }}
+              >
+                <span className="material-icons">remove_circle</span>
               </span>
             </Link>
           </div>
@@ -27,4 +33,11 @@ const FavoriteMovieList = (props) => {
   );
 };
 
-export default FavoriteMovieList;
+const mapStateToProps = (state) => {
+  return {
+    favorites: state.favorites.favorites,
+    displayFavorites: state.movie.movies,
+  };
+};
+
+export default connect(mapStateToProps, { deleteFavorites })(FavoriteMovieList);
