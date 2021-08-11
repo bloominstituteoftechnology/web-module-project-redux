@@ -12,7 +12,8 @@ const reducer = (state = initialState, action) => {
     switch(action.type){
         case TOGGLE_FAV:
             return{
-                displayFavorites: !boolean
+                ...state,
+                displayFavorites: action.payload
             }
         case ADD_FAV:
             return{
