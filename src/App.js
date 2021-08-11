@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Route, Switch, Redirect } from "react-router-dom";
-import { connect } from 'react-redux';
+//import { connect } from 'react-redux';
 
 import MovieList from './components/MovieList';
 import Movie from './components/Movie';
