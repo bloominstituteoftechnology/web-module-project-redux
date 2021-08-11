@@ -21,6 +21,12 @@ const AddMovieForm = (props) => {
             [e.target.name]: e.target.value
         });
     }
+    const handleAdd=(movie)=>{
+        props.addMovie(movie)
+        push("/movies")
+        console.log(movie)
+        
+    }
 
     const handleSubmit = (e) => {
     }
@@ -29,7 +35,7 @@ const AddMovieForm = (props) => {
     return(<div className="col">
         <div className="modal-dialog">
             <div className="modal-content">
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={()=>handleAdd(movie)}>
                     <div className="modal-header">						
                         <h4 className="modal-title">Add Movie</h4>
                     </div>
@@ -59,7 +65,7 @@ const AddMovieForm = (props) => {
                     </div>
                     <div className="modal-footer">
                         <input type="submit" className="btn btn-success" value="Add"/>
-                        <Link to={`/movies`}><input type="button" className="btn btn-default" value="Cancel"/></Link>
+                        <Link to={`/movies`}><input  type="button" className="btn btn-default" value="Cancel"/></Link>
                     </div>
                 </form>
             </div>
@@ -67,4 +73,4 @@ const AddMovieForm = (props) => {
     </div>);
 }
 
-export default AddMovieForm;
+export default connect(null, {addMovie})(AddMovieForm)
