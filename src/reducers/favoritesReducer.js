@@ -13,7 +13,8 @@ export const favoritesReducer = (state = initialState, action) =>
         case "TOGGLE_FAVORITES":
             return ({
                 ...state,
-               displayFavorites: !state.displayFavorites
+                displayFavorites: action.payload,
+                displayFavorites: !state.displayFavorites
             })
 
         case "ADD_FAVORITES":

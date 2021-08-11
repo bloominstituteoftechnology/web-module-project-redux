@@ -28,3 +28,6 @@ export const deleteFavorites = (id) =>
 {
     return({type: DELETE_FAVORITES, payload: id});
 }
+
+
+

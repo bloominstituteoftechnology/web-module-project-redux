@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Route, Switch, Redirect } from "react-router-dom";
-//import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
 import MovieList from './components/MovieList';
 import Movie from './components/Movie';
@@ -10,9 +10,11 @@ import MovieHeader from './components/MovieHeader';
 
 import AddMovieForm from './components/AddMovieForm';
 import FavoriteMovieList from './components/FavoriteMovieList';
+//import {toggleFavorites}  from "./actions/movieActions";
+
 
 const App = props => {
-  const displayFavorites = true;
+  const displayFavorites = props.displayFavorites;
   
 
   return (
@@ -49,4 +51,12 @@ const App = props => {
   );
 };
 
-export default App;
+
+const mapStateToProps = (state) =>
+{
+  //Object display faves
+  return{ displayFavorites: state.favoritesReducer.displayFavorites}
+}
+
+
+export default connect (mapStateToProps)(App);
