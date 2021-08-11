@@ -7,13 +7,13 @@ import { deleteMovie } from "./../actions/movieActions";
 const Movie = (props) => {
     const { id } = useParams();
     const { push } = useHistory();
-    const { dispatch } = useStore();
+    const store = useStore();
     
     
     const movie = props.movies.find(movie=>movie.id===Number(id));
 
     const handleDelete = (id)=> {
-        dispatch(deleteMovie(id));
+        store.dispatch(deleteMovie(id));
         push("/movies/")
     }
     
@@ -59,7 +59,8 @@ const Movie = (props) => {
 
 function mapPropstoState(state) {
     return {
-        movies: state.movies
+        movies: state.movieReducer.movies,
+        displayFavorites: state.favoriteReducer.displayFavorites
     }
 }
 export default connect(mapPropstoState, { deleteMovie })(Movie);
