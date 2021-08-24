@@ -1,11 +1,14 @@
 import React from 'react';
+// must import connect
+import { connect } from 'react-redux';
 
 import MovieListItem from './MovieListItem';
 import MovieFooter from './MovieFooter';
 
 const MovieList = (props)=> {
-    const movies = [];
-
+    // pulling movie names out of props
+    const { movies } = props;
+    console.log(props)
     return (
         <div className="col">
             <table className="table table-striped table-hover">
@@ -30,5 +33,13 @@ const MovieList = (props)=> {
         </div>
     );
 }
-
-export default MovieList;
+// Make map state to props
+const mapStateToProps = state => {
+    //console.log(state);
+    return {
+        movies: state.movies
+    }
+}
+    
+// connect your higher order method here
+export default connect(mapStateToProps)(MovieList);
