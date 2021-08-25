@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { addMovie } from './../actions/movieActions';
 import { connect } from 'react-redux';
 
@@ -12,7 +13,8 @@ const AddMovieForm = (props) => {
         director: "",
         genre: "",
         metascore: 0,
-        description:""
+        description:"",
+        id: uuidv4(),
     });
 
     const handleChange = (e) => {
