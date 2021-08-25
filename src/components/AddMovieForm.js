@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { addMovie } from './../actions/movieActions';
 import { connect } from 'react-redux';
 
@@ -12,7 +13,8 @@ const AddMovieForm = (props) => {
         director: "",
         genre: "",
         metascore: 0,
-        description:""
+        description:"",
+        id: uuidv4(),
     });
 
     const handleChange = (e) => {
@@ -23,6 +25,9 @@ const AddMovieForm = (props) => {
     }
 
     const handleSubmit = (e) => {
+        e.preventDefault();
+        props.addMovie(movie);
+        push("/movies");
     }
 
     const { title, director, genre, metascore, description } = movie;
@@ -37,19 +42,39 @@ const AddMovieForm = (props) => {
                     <div className="modal-body">					
                         <div className="form-group">
                             <label>Title</label>
-                            <input value={title} onChange={handleChange} name="title" type="text" className="form-control"/>
+                            <input 
+                            value={title} 
+                            onChange={handleChange} 
+                            name="title" 
+                            type="text" 
+                            className="form-control"/>
                         </div>
                         <div className="form-group">
                             <label>Director</label>
-                            <input value={director} onChange={handleChange} name="director" type="text" className="form-control"/>
+                            <input 
+                            value={director} 
+                            onChange={handleChange} 
+                            name="director" 
+                            type="text" 
+                            className="form-control"/>
                         </div>
                         <div className="form-group">
                             <label>Genre</label>
-                            <input value={genre} onChange={handleChange} name="genre" type="text" className="form-control"/>
+                            <input 
+                            value={genre} 
+                            onChange={handleChange} 
+                            name="genre" 
+                            type="text" 
+                            className="form-control"/>
                         </div>
                         <div className="form-group">
                             <label>Metascore</label>
-                            <input value={metascore} onChange={handleChange} name="metascore" type="number" className="form-control"/>
+                            <input 
+                            value={metascore} 
+                            onChange={handleChange} 
+                            name="metascore" 
+                            type="number" 
+                            className="form-control"/>
                         </div>		
                         <div className="form-group">
                             <label>Description</label>
@@ -67,4 +92,14 @@ const AddMovieForm = (props) => {
     </div>);
 }
 
-export default AddMovieForm;
+const mapStateToProps = (state) => {
+    return {};
+};
+
+const mapDispatchToProps = (dispacth) => {
+    return {
+        addMovie: (newMovie) => dispacth(addMovie(newMovie)),
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps) (AddMovieForm);
