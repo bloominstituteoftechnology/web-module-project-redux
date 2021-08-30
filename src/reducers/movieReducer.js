@@ -6,11 +6,22 @@ const initialState = {
     appTitle: "IMDB Movie Database"
 }
 
-const reducer = (state, action) => {
+const reducer = (state = initialState, action) => {
     switch(action.type) {
         case DELETE_MOVIE:
             return {
                 movies: state.movies.filter(item=>(action.payload !== item.id))
+            }
+        case ADD_MOVIE:
+            return {
+                movies: [...state.movies, {
+                    id: state.movies.length,
+                    title: action.payload.title,
+                    director: action.payload.director,
+                    genre: action.payload.genre,
+                    metascore: action.payload.metascore,
+                    description: action.payload.description
+                }]
             }
         default:
             return state;
