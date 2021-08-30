@@ -3,8 +3,8 @@ import React from 'react';
 import MovieListItem from './MovieListItem';
 import MovieFooter from './MovieFooter';
 
-const MovieList = (props)=> {
-    const movies = [];
+const MovieList = (state)=> {
+    const movies = [state.movies];
 
     return (
         <div className="col">
@@ -29,6 +29,10 @@ const MovieList = (props)=> {
             <MovieFooter totalMovies={movies.length}/>
         </div>
     );
+}
+
+const mapStateToProps = (state) => {
+    return{movies:state.movieReducer.movies}
 }
 
 export default MovieList;
