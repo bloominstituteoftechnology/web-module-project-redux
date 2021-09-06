@@ -2,6 +2,19 @@
 
 This module explored the redux philosophy, creation of the redux store and using connect to link state and action to arbitrary components.
 
+- [Redux React Module Project: Movie CRUD](#redux-react-module-project-movie-crud)
+  - [Objectives](#objectives)
+  - [Introduction](#introduction)
+  - [Instructions](#instructions)
+    - [Task 1: Project Set Up](#task-1-project-set-up)
+    - [Task 2: Project Requirements](#task-2-project-requirements)
+      - [Setup Redux](#setup-redux)
+      - [Connecting the Movie reducer](#connecting-the-movie-reducer)
+      - [Connecting the Delete and Add Movie actions](#connecting-the-delete-and-add-movie-actions)
+      - [Build out the favorites reducer](#build-out-the-favorites-reducer)
+      - [Build out the favorites actions](#build-out-the-favorites-actions)
+    - [Stretch goals](#stretch-goals)
+
 ## Objectives
 - Understand the use and setup of Redux
 - Use Redux to connect existing state and actions to components
@@ -88,3 +101,4 @@ In this project, you take a fairly complex application used to search a movie da
 - Right now, you can favorite the same movie multiple times. Change the addFavorite action to only add in a new favorite if it doesn't already exist.
 - Add in the ability to remove a movie from the favorites list if that movie is removed from our main movie list.
 - Style to your heart's content ❤️
+
