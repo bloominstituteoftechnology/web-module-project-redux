@@ -14,6 +14,7 @@ This module explored the redux philosophy, creation of the redux store and using
       - [Build out the favorites reducer](#build-out-the-favorites-reducer)
       - [Build out the favorites actions](#build-out-the-favorites-actions)
     - [Stretch goals](#stretch-goals)
+  - [Rick Mansfield's Push/pull trail for Redux Project](#rick-mansfields-pushpull-trail-for-redux-project)
 
 ## Objectives
 - Understand the use and setup of Redux
@@ -102,3 +103,4 @@ In this project, you take a fairly complex application used to search a movie da
 - Add in the ability to remove a movie from the favorites list if that movie is removed from our main movie list.
 - Style to your heart's content ❤️
 
+## [Rick Mansfield's Push/pull trail for Redux Project](https://github.com/LambdaSchool/web-module-project-redux/pull/93)
