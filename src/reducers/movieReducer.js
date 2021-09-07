@@ -6,7 +6,9 @@ const initialState = {
     appTitle: "IMDB Movie Database"
 }
 
-const reducer = (state, action) => {
+const reducer = (state = initialState, action) => {
+    console.log('dragonReducer.js ln:10 action:', action);
+    console.log('dragonReducer.js ln:11 state:', state);
     switch(action.type) {
         case DELETE_MOVIE:
             return {
