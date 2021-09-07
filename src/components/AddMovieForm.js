@@ -28,7 +28,7 @@ const AddMovieForm = (props) => {
             ...movie,
             id: Date.now()
         })
-        push('/movies/')
+        push('/movies')
     }
 
 
