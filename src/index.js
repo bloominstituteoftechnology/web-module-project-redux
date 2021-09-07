@@ -13,7 +13,7 @@ const store = createStore(reducer);
 console.log(store);
 
 ReactDOM.render(
-  <Provider>
+  <Provider store={store}>
     <Router>
         <App />
     </Router>
