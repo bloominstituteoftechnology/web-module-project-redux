@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { deleteMovie } from '../actions/movieActions';
 
 const Movie = (props) => {
     console.log('Movie.js ln:6 Movie=(props)', props);
@@ -55,4 +56,4 @@ const mapStateToProps = (state) => {
 }
 
 // export default Movie;
-export default connect(mapStateToProps)(Movie);
+export default connect(mapStateToProps, {deleteMovie})(Movie);
