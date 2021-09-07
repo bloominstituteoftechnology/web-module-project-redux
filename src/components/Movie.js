@@ -9,6 +9,7 @@ const Movie = (props) => {
     const { push } = useHistory();
 
     const useDeleteMoive = () => {
+        console.log('Moive.js ln:12 useDeletetMovie=(props', props);
         props.deleteMovie(movie.id)
         push('/movies');
     }
