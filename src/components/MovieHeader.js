@@ -3,10 +3,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 const MovieHeader = (props) => {
-    const { appTitle} = props;
+    const { appTitle } = props;
     const displayFavorites = true;
-
-    console.log("MovieHeader: ", props)
     
     return(<div className="table-title">
         <div className="row">
