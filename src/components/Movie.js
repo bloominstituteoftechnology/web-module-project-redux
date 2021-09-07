@@ -8,6 +8,12 @@ const Movie = (props) => {
     const { id } = useParams();
     const { push } = useHistory();
 
+    const useDeleteMoive = () => {
+        props.deleteMovie(movie.id)
+        push('/movies');
+    }
+
+
     // const movies = [];
     const movies = props.movies;
     const movie = movies.find(movie=>movie.id===Number(id));
@@ -42,7 +48,9 @@ const Movie = (props) => {
                         
                         <section>
                             <span className="m-2 btn btn-dark">Favorite</span>
-                            <span className="delete"><input type="button" className="m-2 btn btn-danger" value="Delete"/></span>
+                            <span className="delete">
+                                <input type="button" className="m-2 btn btn-danger" value="Delete" onClick={useDeleteMoive}/>
+                            </span>
                         </section>
                     </div>
                 </div>
