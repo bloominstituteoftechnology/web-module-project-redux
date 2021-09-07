@@ -52,7 +52,7 @@ In this project, you take a fairly complex application used to search a movie da
 
 * [x] 4 **The Movie component needs to access our list of movies to function.** Map movies to props here as well.
 
-* [ ] **Finally, MovieHeader uses appTitle to display the title text.** Connect this component to appTitle and test appTitle is correctly displayed in your app.
+* [5] **Finally, MovieHeader uses appTitle to display the title text.** Connect this component to appTitle and test appTitle is correctly displayed in your app.
 
 
 #### Connecting the Delete and Add Movie actions
