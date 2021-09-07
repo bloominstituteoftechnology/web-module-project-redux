@@ -48,4 +48,4 @@ const App = props => {
   );
 };
 
-export default connet(mapStateToProps)(App);
+export default App;
