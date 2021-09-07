@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { addMovie } from '../actions/movieActions';
 
 const MovieHeader = (props) => {
     // const appTitle = "";
