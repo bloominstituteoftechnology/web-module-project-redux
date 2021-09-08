@@ -36,7 +36,7 @@ const MovieList = (props) => {
 const mapStateToProps = (state) => {
     // console.log('MovieList.js ln:36 mapStateToProps=(state)', state);
     return {
-        movies: state.movies//STEP #2 in readme.md. will get replaced in step #14
+        movies: state.movieReducer.movies//STEP #2 in readme.md. will get replaced in step #14
     }
 }
 
