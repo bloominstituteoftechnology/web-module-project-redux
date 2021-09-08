@@ -2,8 +2,8 @@ import {} from "../actions/movieActions.js";
 import movies from "../data.js";
 
 const initialState = {
-  movies: movies,
-  appTitle: "IMDB Movie Database",
+  favorites: [],
+  displayFavorites: false,
 };
 
 const reducer = (state = initialState, action) => {
