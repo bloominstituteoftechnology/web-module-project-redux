@@ -74,7 +74,7 @@ In this project, you take a fairly complex application used to search a movie da
 #### Build out the favorites reducer
 > *Alright! Now that the movie reducer is complete, you have the chance to build a reducer from scratch to handle favorite movie functionality. We will also work on combining reducers.*
 
-* [ ] Create a reducer file for handling business logic for favorites. Include the following state values in your initialState setup:
+* [ ] 15 Create a reducer file for handling business logic for favorites. Include the following state values in your initialState setup:
   -  favorites: an array of movie objects
   -  displayFavorites: a boolean that holds if favorite elements should be displayed in app
 
