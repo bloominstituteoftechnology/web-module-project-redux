@@ -26,7 +26,6 @@ const AddMovieForm = (props) => {
   const handleSubmit = (e) => {
     props.addMovie(movie);
     push("/movie");
-    console.log("addMovieForm works handle submit");
   };
 
   const { title, director, genre, metascore, description } = movie;
