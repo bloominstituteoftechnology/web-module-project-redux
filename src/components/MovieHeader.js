@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const MovieHeader = (props) => {
@@ -19,4 +20,10 @@ const MovieHeader = (props) => {
     </div>);
 }
 
-export default MovieHeader;
+const mapStateToProps = state => {
+    return({
+        display: state.favorites.displayFavorites
+    })
+}
+
+export default connect( mapStateToProps )( MovieHeader );
