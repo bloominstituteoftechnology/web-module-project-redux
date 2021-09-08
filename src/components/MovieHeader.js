@@ -38,7 +38,7 @@ const MovieHeader = (props) => {
 const mapStateToProps = (state) => {
     // console.log('MovieHeader.js ln:33 state:', state);
     return {
-        appTitle: state.appTitle,
+        appTitle: state.movieReducer.appTitle,
         displayFavorites: state.favoritesReducer.displayFavorites
     }
 }

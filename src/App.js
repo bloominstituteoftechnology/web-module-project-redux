@@ -51,7 +51,7 @@ const App = props => {
 
 // export default App;
 const mapStateToProps = (state) => {
-  console.log('App.js state: ', state)
+  // console.log('App.js ln:54 state: ', state)
   return {
     displayFavorites: state.favoritesReducer.displayFavorites
   }

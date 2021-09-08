@@ -26,7 +26,7 @@ const Movie = (props) => {
     // const movies = [];
     const movies = props.movies;
     const movie = movies.find(movie => movie.id === Number(id));
-    const displayFavorites = props.displayFavorites;
+    // const displayFavorites = props.displayFavorites;
 
     return (<div className="modal-page col">
         <div className="modal-dialog">
@@ -70,7 +70,7 @@ const Movie = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log('App.js ln:65 state:', state)
+    // console.log('Movie.js ln:73 state:', state)
     return {
         movies: state.movieReducer.movies,
         displayFavorites: state.favoritesReducer.displayFavorites
