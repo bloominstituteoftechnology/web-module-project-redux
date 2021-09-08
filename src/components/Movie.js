@@ -25,13 +25,13 @@ const Movie = (props) => {
 
     // const movies = [];
     const movies = props.movies;
-    const movie = movies.find(movie=>movie.id===Number(id));
+    const movie = movies.find(movie => movie.id === Number(id));
     const displayFavorites = props.displayFavorites;
-    
-    return(<div className="modal-page col">
+
+    return (<div className="modal-page col">
         <div className="modal-dialog">
             <div className="modal-content">
-                <div className="modal-header">						
+                <div className="modal-header">
                     <h4 className="modal-title">{movie.title} Details</h4>
                 </div>
                 <div className="modal-body">
@@ -55,11 +55,11 @@ const Movie = (props) => {
                                 <p><strong>{movie.description}</strong></p>
                             </div>
                         </section>
-                        
+
                         <section>
-                            {displayFavorites && <span className="m-2 btn btn-dark" onClick={useAddFavorite}>Favorite</span>}
+                            <span className="m-2 btn btn-dark" onClick={useAddFavorite}>Favorite</span>
                             <span className="delete">
-                                <input type="button" className="m-2 btn btn-danger" value="Delete" onClick={useDeleteMoive}/>
+                                <input type="button" className="m-2 btn btn-danger" value="Delete" onClick={useDeleteMoive} />
                             </span>
                         </section>
                     </div>
@@ -78,4 +78,4 @@ const mapStateToProps = (state) => {
 }
 
 // export default Movie;
-export default connect(mapStateToProps, {deleteMovie, addFavorite})(Movie);
+export default connect(mapStateToProps, { deleteMovie, addFavorite })(Movie);

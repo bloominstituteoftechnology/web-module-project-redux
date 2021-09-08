@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Route, Switch, Redirect } from "react-router-dom";
-
+import { connect } from 'react-redux';
 
 import MovieList from './components/MovieList';
 import Movie from './components/Movie';
@@ -49,4 +49,11 @@ const App = props => {
   );
 };
 
-export default App;
+// export default App;
+const mapStateToProps = (state) => {
+  console.log('App.js state: ', state)
+  return {
+    displayFavorites: state.favoritesReducer.displayFavorites
+  }
+}
+export default connect(mapStateToProps)(App);

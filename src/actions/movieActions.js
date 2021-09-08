@@ -7,6 +7,7 @@ export const deleteMovie = (id)=>{
 }
 
 export const addMovie = (movie) =>{
+    // console.log('movieActions.js ln:10 movie:', movie)
     return({ type: ADD_MOVIE, payload:movie })
 }
 
