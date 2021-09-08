@@ -59,14 +59,18 @@ const Movie = (props) => {
               </section>
 
               <section>
-                <span>
-                  <input
-                    type="button"
-                    className="m-2 btn btn-dark"
-                    value="Favorite"
-                    onClick={favoriteButtonClick}
-                  />
-                </span>
+                {props.favorites.find(
+                  (favorite) => favorite.id == movie.id
+                ) ? null : (
+                  <span>
+                    <input
+                      type="button"
+                      className="m-2 btn btn-dark"
+                      value="Favorite"
+                      onClick={favoriteButtonClick}
+                    />
+                  </span>
+                )}
                 <span className="delete">
                   <input
                     type="button"
