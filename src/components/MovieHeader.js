@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { toggleFavorites } from '../actions/movieActions';
+import { toggleFavorites } from '../actions/favoitesAction';
 
 
 const MovieHeader = (props) => {
-    console.log('MovieHeader.js ln:7 props', props);
+    // console.log('MovieHeader.js ln:7 props', props);
     // const appTitle = "";
     const appTitle = props.appTitle;
     // const displayFavorites = true;
@@ -30,7 +30,7 @@ const MovieHeader = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log('MovieHeader.js ln:33 state:', state);
+    // console.log('MovieHeader.js ln:33 state:', state);
     return {
         appTitle: state.appTitle,
         displayFavorites: state.favoritesReducer.displayFavorites
