@@ -18,6 +18,7 @@ const Movie = (props) => {
     // const movies = [];
     const movies = props.movies;
     const movie = movies.find(movie=>movie.id===Number(id));
+    const displayFavorites = props.displayFavorites;
     
     return(<div className="modal-page col">
         <div className="modal-dialog">
@@ -61,7 +62,10 @@ const Movie = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    return {movies: state.movieReducer.movies}
+    return {
+        movies: state.movieReducer.movies,
+        displayFavorites: state.favoritesReducer.displayFavorites
+    }
 }
 
 // export default Movie;

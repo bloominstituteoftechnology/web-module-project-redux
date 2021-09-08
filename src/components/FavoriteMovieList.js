@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 
 const FavoriteMovieList = (props) => {
+    console.log('FavoriteMovieList ln: 7 props: ', props) 
     // const favorites = [];
     const favorites = props.favorites;
     
@@ -22,7 +23,7 @@ const FavoriteMovieList = (props) => {
     </div>);
 }
 const mapStateToProps = (state) => {
-    // console.log('FavoriteMoviesList.js ln:27 state: ', state)
+    console.log('FavoriteMoviesList.js ln:27 state: ', state)
     return({
         favorites: state.favoritesReducer.favorites
     })
