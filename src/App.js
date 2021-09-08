@@ -12,7 +12,8 @@ import AddMovieForm from './components/AddMovieForm';
 import FavoriteMovieList from './components/FavoriteMovieList';
 
 const App = props => {
-  const displayFavorites = true;
+  
+  const displayFavorites = props.displayFavorites
 
   return (
     <div>
@@ -23,7 +24,7 @@ const App = props => {
       <div className="container">
         <MovieHeader/>
         <div className="row ">
-          {displayFavorites && <FavoriteMovieList/>}
+          {displayFavorites ? <FavoriteMovieList/> : null}
         
           <Switch>
             <Route exact path="/movies/add">
@@ -47,5 +48,12 @@ const App = props => {
     </div>
   );
 };
+const mapStateToProps =(state)=>{
+   
+  return({
+      
+      displayFavorites: state.favoriteReducer.displayFavorites
+  })
+}
 
-export default App;
+export default connect (mapStateToProps)(App);
