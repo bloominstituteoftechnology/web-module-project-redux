@@ -86,7 +86,7 @@ In this project, you take a fairly complex application used to search a movie da
 
 * [x] 19 Connect the favorites state to the FavoriteMovieList component and test.
 
-* [ ] Connect the displayFavorites state to the Movie and MovieHeader component.
+* [x] 20 Connect the displayFavorites state to the Movie and MovieHeader component.
 
 #### Build out the favorites actions
 > *Now is your chance to build our all the rest of the app on your own. You can do this!*
