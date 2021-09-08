@@ -2,7 +2,7 @@ import { ADD_FAVORITES, REMOVE_FAVORITES } from "./../actions/favoriteAction";
 
 const initialState = {
   favorites: [],
-  displayFavorites: true,
+  displayFavorites: false,
 };
 
 const reducer = (state = initialState, action) => {
