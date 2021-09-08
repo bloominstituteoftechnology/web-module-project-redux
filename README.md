@@ -91,11 +91,15 @@ In this project, you take a fairly complex application used to search a movie da
 #### Build out the favorites actions
 > *Now is your chance to build our all the rest of the app on your own. You can do this!*
 
-1. Add in reducer cases, action creators and event handler code for the following actions:
-  - toggleFavorites : Switches the displayFavorites state value between true and false. When displayFavorites is true, the favorite button does not show on the Movie page.
+21-23 Add in A) reducer cases, B) action creators and C) event handler code for the following actions:
+
+  17 - A) reducer case toggleFavorites : Switches the displayFavorites state value between true and false. When displayFavorites is true, the favorite button does not show on the Movie page.
+  B) action creators and C) event handler code 
+  Review app.js import/export and state. 
   
-  - addFavorites: Adds in a new movie object into the favorites list.
-  - removeFavorite: Removes a movie Object from the favorites list with an id passed in.
+  18 - A) Reducer case addFavorites: Adds in a new movie object into the favorites list.B) action creators and C) event handler code
+
+  19 - A) reducer case removeFavorite: Removes a movie Object from the favorites list with an id passed in.B) action creators and C) event handler code
 
 ### Stretch goals
 - It makes sense to not allow the user to favorite an item if favorites is not displayed. Add in means for the favorite button to ONLY display if displayFavorite is true.
