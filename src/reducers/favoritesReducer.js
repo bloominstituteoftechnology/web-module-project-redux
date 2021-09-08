@@ -4,8 +4,8 @@ const initialState = {
 }
 
 const favReducer = (state = initialState, action) =>{
-    console.log('favoritesReducer ln:7 state', state);
-    console.log('favoritesReducer ln:8 state', action);
+    // console.log('favoritesReducer ln:7 state', state);
+    // console.log('favoritesReducer ln:8 state', action);
     switch(action.type){
         default: 
         return state;

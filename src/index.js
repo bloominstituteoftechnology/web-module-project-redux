@@ -10,7 +10,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
 
 const store = createStore(reducer);
-console.log("index.js ln:13 store.getState()",store.getState());
+// console.log("index.js ln:13 store.getState()",store.getState());
 
 ReactDOM.render(
   <Provider store={store}>

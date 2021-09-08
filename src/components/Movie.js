@@ -4,12 +4,12 @@ import { connect } from 'react-redux';
 import { deleteMovie } from '../actions/movieActions';
 
 const Movie = (props) => {
-    console.log('Movie.js ln:6 Movie=(props)', props);
+    // console.log('Movie.js ln:6 Movie=(props)', props);
     const { id } = useParams();
     const { push } = useHistory();
 
     const useDeleteMoive = () => {
-        console.log('Moive.js ln:12 useDeletetMovie=(props', props);
+        // console.log('Moive.js ln:12 useDeletetMovie=(props', props);
         props.deleteMovie(movie.id)
         push('/movies');
     }

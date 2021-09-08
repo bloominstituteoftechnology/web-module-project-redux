@@ -4,7 +4,7 @@ import MovieFooter from './MovieFooter';
 import { connect } from 'react-redux';
 
 const MovieList = (props) => {
-    console.log('MovieList.js ln:8 Movlist = (props):', props);
+    // console.log('MovieList.js ln:8 Movlist = (props):', props);
     // const movies = [];
     const movies = props.movies;
 
