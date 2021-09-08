@@ -62,6 +62,7 @@ const Movie = (props) => {
 }
 
 const mapStateToProps = (state) => {
+    console.log('App.js ln:65 state:', state)
     return {
         movies: state.movieReducer.movies,
         displayFavorites: state.favoritesReducer.displayFavorites

@@ -12,7 +12,8 @@ import AddMovieForm from './components/AddMovieForm';
 import FavoriteMovieList from './components/FavoriteMovieList';
 
 const App = props => {
-  const displayFavorites = true;
+  // const displayFavorites = true;
+  const displayFavorites = props.displayFavorites; 
 
   return (
     <div>
