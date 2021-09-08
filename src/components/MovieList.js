@@ -32,6 +32,6 @@ const MovieList = (props) => {
   );
 };
 const mapStateToProps = (state) => {
-  return { movies: state.movies };
+  return { movies: state.movie.movies };
 };
 export default connect(mapStateToProps)(MovieList);

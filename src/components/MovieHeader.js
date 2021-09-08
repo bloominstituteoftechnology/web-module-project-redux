@@ -28,6 +28,6 @@ const MovieHeader = (props) => {
   );
 };
 const mapStateToProps = (state) => {
-  return { appTitle: state.appTitle };
+  return { appTitle: state.movie.appTitle };
 };
 export default connect(mapStateToProps)(MovieHeader);
