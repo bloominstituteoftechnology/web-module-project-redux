@@ -1,10 +1,13 @@
 import React from 'react';
 
+import { connect }  from 'react-redux'; //step 4 import connect
+
 import MovieListItem from './MovieListItem';
 import MovieFooter from './MovieFooter';
+import movies from '../data';
 
 const MovieList = (props)=> {
-    const movies = [];
+    const { movies } = props;//step 8 construct props and movies all together 
 
     return (
         <div className="col">
@@ -31,4 +34,11 @@ const MovieList = (props)=> {
     );
 }
 
-export default MovieList;
+const mapStateToProps = (state) => {//step 6 
+return({
+    movies:state.movieReducer.movies
+})
+}
+
+
+export default connect(mapStateToProps)(MovieList);//step 5 overlap // step 7 putting line 36 into connect 

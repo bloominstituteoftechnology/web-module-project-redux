@@ -25,7 +25,7 @@ In this project, you take a fairly complex application used to search a movie da
 
 ### Task 2: Project Requirements
 #### Setup Redux
-> *The DOM and movie reducer has been provided for you, but it's up to to connect it to redux...*
+> *The DOM and movie reducer has been provided for you, but it's up to you to connect it to redux...*
 
 * [ ] In index.js, make use of the createStore method and Provider component to link your App to redux.
 
@@ -48,7 +48,7 @@ In this project, you take a fairly complex application used to search a movie da
 
 * [ ] **We can delete movies within the Movie Component.** Connect the deleteMovie action through the connect method.
 
-* [ ] **Find the HTML element that should trigger a deletion in the movie component.** Create and connect the necessary event handlers to call deleteMovie on the current movie's id. After setting the state, redirect the user using the push('/movies') command.
+* [ ] **Find the HTML element that should trigger a deletion in the movie component.** Create and connect the necessary event handlers to call deleteMovie on the current movie's id. After setting the state, redirect the user using the push('/movies') command..........
 
 * [ ] Add in an ADD_MOVIE case to movieReducer.js.
 * [ ] Make this new case return a version of state with new movie values passed in through the payload.
