@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 
 const MovieList = (props)=> {
-    const movies = props.movie;
+    const movies = props.movies;
 
     return (
         <div className="col">
@@ -35,7 +35,7 @@ const MovieList = (props)=> {
 
 const mapStateToProps = (state) => {
     return ({
-        movie: state.movie.movies,
+        movies: state.movieReducer.movies,
     })
 }
 

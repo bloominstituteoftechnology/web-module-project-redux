@@ -22,14 +22,11 @@ const AddMovieForm = (props) => {
         });
     }
 
-    const handleClick = (e) => {
-        e.preventDefault();
-        props.addMovie(e.target)
-    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        push('/movies/')
+        props.addMovie(movie);
+        push('/movies')
     }
 
     const { title, director, genre, metascore, description } = movie;
