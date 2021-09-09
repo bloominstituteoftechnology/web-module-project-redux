@@ -36,9 +36,9 @@ const MovieList = (props)=> {
 
 const mapStateToProps = (state) => {//step 6 
 return({
-    movies:state.movies
+    movies:state.movieReducer.movies
 })
 }
-// console.log(movies);
+
 
 export default connect(mapStateToProps)(MovieList);//step 5 overlap // step 7 putting line 36 into connect 
