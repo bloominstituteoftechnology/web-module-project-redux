@@ -5,7 +5,7 @@ import { removeFavorite } from '../actions/favoitesAction';
 
 
 const FavoriteMovieList = (props) => {
-    // console.log('FavoriteMovieList ln: 7 props: ', props) 
+    console.log('FavoriteMovieList ln: 7 props: ', props) 
     // const favorites = [];
     const favorites = props.favorites;
     const removeFavorite = props.removeFavorite 
@@ -24,6 +24,7 @@ const FavoriteMovieList = (props) => {
                         {movie.title}
                         <span>
                             <span className="material-icons" onClick={()=>{removeFavorite(movie.id)}}>remove_circle</span>
+                            {/* <span className="material-icons" onClick={useRemoveFavorite}>remove_circle</span> */}
                         </span>
                     </Link> 
                 </div>
