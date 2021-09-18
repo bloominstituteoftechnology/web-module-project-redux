@@ -13,8 +13,9 @@ const Movie = (props) => {
     console.table(props)
     console.groupEnd('Movie Component')
     const movie = movies.find(movie => movie.id === Number(id))
-    const handleDeleteMovieClick = e => {
-        deleteMovie(id)
+
+    const handleDeleteMovieClick = () => {
+        props.deleteMovie(Number(id))
         push('/movies');
     }
 

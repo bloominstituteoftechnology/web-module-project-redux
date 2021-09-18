@@ -7,10 +7,19 @@ const initialState = {
 }
 
 const reducer = (state = initialState, action) => {
+
+    console.groupCollapsed('%cmovieReducer.js', 'color: pink')
+    console.log('%cState: ', 'color: yellow')
+    console.table(state)
+    console.log('%cAction: ', 'color: yellow')
+    console.table(action)
+    console.groupEnd('movieReducer.js')
+
     switch (action.type) {
         case DELETE_MOVIE:
             return {
-                movies: state.movies.filter(item =>  (action.payload !== item.id))
+                ...state,
+                movies: state.movies.filter(item => item.id !== action.payload)
             }
         default:
             return state;
