@@ -46,5 +46,9 @@ const Movie = (props) => {
         </div>
     </div>);
 }
-
-export default Movie;
+const mapStateToProps = (state) => {
+    return {
+      movies: state.movie.movies,
+    };
+  };
+export default connect(mapStateToProps, { deleteMovie })(Movie);
