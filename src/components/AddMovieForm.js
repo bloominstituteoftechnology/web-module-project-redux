@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { addMovie } from './../actions/movieActions';
 import { connect } from 'react-redux';
 
@@ -26,7 +26,7 @@ const AddMovieForm = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        console.groupCollapsed('%cAddMovieForm: handleSubmit()', 'color: pink');
+        console.groupCollapsed('%cAddMovieForm: handleSubmit()', 'color: yellow');
         console.log('%cMovie:', 'color: yellow')
         console.table(movie)
         console.groupEnd('AddMovieForm: handleSubmit()');

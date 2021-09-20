@@ -1,13 +1,20 @@
 import { ADD_MOVIE, DELETE_MOVIE } from '../actions/movieActions.js';
 import movies from './../data.js';
 
-const initialState = {
+export const initialState = {
     movies: movies,
     appTitle: "IMDB Murvee Database"
 }
 
-const reducer = (state = initialState, action) => {
-    
+const movieReducer = (state = initialState, action) => {
+
+    console.groupCollapsed("%cmovieReducer.js", "color: yellow")
+    console.log('%cstate:', 'color: orange')
+    console.table(state)
+    console.log('%caction type: ', 'color: orange')
+    console.table(action.type)
+    console.groupEnd("movieReducer.js")
+
     switch (action.type) {
         case DELETE_MOVIE:
             return {
@@ -15,7 +22,7 @@ const reducer = (state = initialState, action) => {
                 movies: state.movies.filter(item => item.id !== action.payload)
             }
         case ADD_MOVIE:
-            const newMovie = {...action.payload, id: Date.now()}
+            const newMovie = { ...action.payload, id: Date.now() }
             return {
                 ...state,
                 movies: [...state.movies, newMovie]
@@ -25,4 +32,4 @@ const reducer = (state = initialState, action) => {
     }
 }
 
-export default reducer;
+export default movieReducer;

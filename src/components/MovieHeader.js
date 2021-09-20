@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const MovieHeader = (props) => {
     const appTitle = props.appTitle;
-    console.groupCollapsed('%cMovieHeader component', 'color: pink')
+    console.groupCollapsed('%cMovieHeader component', 'color: yellow')
     console.log('%cProps: ', 'color: yellow')
     console.table(props)
     console.groupEnd('MovieHeader component')

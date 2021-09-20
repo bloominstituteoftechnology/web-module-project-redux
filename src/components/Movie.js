@@ -1,22 +1,26 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import { connect } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { deleteMovie } from '../actions/movieActions';
+import movieReducer, { initialState } from '../reducers/movieReducer';
 
-const Movie = (props) => {
+const Movie = () => {
+
+    const [state] = useReducer(movieReducer, initialState);
+
     const { id } = useParams();
     const { push } = useHistory();
-    const { movies } = props;
+    const { movies } = state;
     const movie = movies.find(movie => movie.id === Number(id))
 
     const handleDeleteMovieClick = () => {
-        props.deleteMovie(Number(id))
+        deleteMovie(Number(id))
         push('/movies');
     }
 
-    console.groupCollapsed('%cMovie Component', 'color: pink')
-    console.log('%cprops:', 'color: yellow')
-    console.table(props)
+    console.groupCollapsed('%cMovie Component', 'color: yellow')
+    console.log('%cstate:', 'color: yellow')
+    console.table(state)
     console.groupEnd('Movie Component')
 
     return (<div className="modal-page col">

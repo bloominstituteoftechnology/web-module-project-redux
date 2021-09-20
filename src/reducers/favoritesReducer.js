@@ -1,0 +1,30 @@
+import { ADD_TO_FAVORITES, REMOVE_FROM_FAVORITES } from "../actions/favoritesActions";
+
+export const initialState = {
+    favorites: [{
+        id: 1,
+        title: "Star Wars",
+        director: "George Lucas",
+        metascore: 92,
+        genre: "Scifi",
+        description: "Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy from the Empire's world-destroying battle station, while also attempting to rescue Princess Leia from the mysterious Darth Vader."
+    }],
+    displayFavorites: false
+}
+
+const favoritesReducer = (state = initialState, action) => {
+    console.groupCollapsed("%cfavoritesReducer.js", 'color: yellow')
+    console.log("%cstate: ", 'color: orange')
+    console.table(state)
+    console.groupEnd("favoritesReducer.js")
+    switch (action.type) {
+        case ADD_TO_FAVORITES:
+            return state;
+        case REMOVE_FROM_FAVORITES:
+            return state;
+        default:
+            return state;
+    }
+}
+
+export default favoritesReducer;

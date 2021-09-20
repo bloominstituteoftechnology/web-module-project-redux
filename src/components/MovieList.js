@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 
 import MovieListItem from './MovieListItem';
 import MovieFooter from './MovieFooter';
 import { connect } from 'react-redux';
+import { initialState } from '../reducers/movieReducer';
+import reducer from '../reducers';
 
-const MovieList = (props) => {
-    const { movies } = props;
+const MovieList = () => {
+
+    const [state] = useReducer(reducer, initialState)
+
+    const { movies } = state;
 
     return (
         <div className="col">

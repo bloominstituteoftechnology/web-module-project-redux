@@ -13,9 +13,8 @@ import FavoriteMovieList from './components/FavoriteMovieList';
 
 const App = props => {
   const displayFavorites = true;
-  console.groupCollapsed('%cApp component', 'color: pink')
-  console.log("%cApp component props:", 'color: yellow')
-  console.table(props)
+  console.groupCollapsed('%cApp component', 'color: yellow')
+  console.log("%cprops:", 'color: orange', props)
   console.groupEnd('App component')
 
   return (
