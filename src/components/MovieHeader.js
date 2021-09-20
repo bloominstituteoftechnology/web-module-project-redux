@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import reducer from '../reducers';
+import { initialState } from '../reducers/movieReducer';
 
-const MovieHeader = (props) => {
-    const appTitle = props.appTitle;
+const MovieHeader = () => {
+
+    const [state] = useReducer(reducer, initialState);
+    const { appTitle, displayFavorites } = state;
+
     console.groupCollapsed('%cMovieHeader component', 'color: yellow')
     console.log('%cProps: ', 'color: yellow')
-    console.table(props)
+    console.table(state)
     console.groupEnd('MovieHeader component')
-    const displayFavorites = true;
 
     return (<div className="table-title">
         <div className="row">
@@ -16,7 +20,7 @@ const MovieHeader = (props) => {
                 <h2>{appTitle}</h2>
             </div>
             <div className="col-sm-6 headerBar">
-                <div className="btn btn-sm btn-primary"><span>{displayFavorites ? "Hide" : "Show"} Favorites</span></div>
+                <div className="btn btn-sm btn-primary" onClick={} ><span>{displayFavorites ? "Hide" : "Show"} Favorites</span></div>
                 <Link to="/movies" className="btn btn-sm btn-primary">View All Movies</Link>
                 <Link to="/movies/add" className="btn btn-sm btn-success"><i className="material-icons">&#xE147;</i> <span>Add New Movie</span></Link>
             </div>

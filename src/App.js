@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useReducer } from "react";
 
 import { Route, Switch, Redirect } from "react-router-dom";
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
 import MovieList from './components/MovieList';
 import Movie from './components/Movie';
@@ -10,12 +10,12 @@ import MovieHeader from './components/MovieHeader';
 
 import AddMovieForm from './components/AddMovieForm';
 import FavoriteMovieList from './components/FavoriteMovieList';
+import reducer from "./reducers";
+import { initialState } from "./reducers/favoritesReducer";
 
-const App = props => {
-  const displayFavorites = true;
-  console.groupCollapsed('%cApp component', 'color: yellow')
-  console.log("%cprops:", 'color: orange', props)
-  console.groupEnd('App component')
+const App = () => {
+
+  const [state] = useReducer(reducer, initialState)
 
   return (
     <div>
@@ -26,7 +26,7 @@ const App = props => {
       <div className="container">
         <MovieHeader />
         <div className="row ">
-          {displayFavorites && <FavoriteMovieList />}
+          {state.displayFavorites && <FavoriteMovieList />}
 
           <Switch>
             <Route exact path="/movies/add">
@@ -51,4 +51,10 @@ const App = props => {
   );
 };
 
-export default (App);
+const mapStateToProps = state => {
+  return ({
+    displayFavorites: state.displayFavorites
+  })
+}
+
+export default connect(mapStateToProps, {})(App);
