@@ -6,18 +6,18 @@ import { deleteMovie } from '../actions/movieActions';
 const Movie = (props) => {
     const { id } = useParams();
     const { push } = useHistory();
-
     const { movies } = props;
-    console.groupCollapsed('%cMovie Component', 'color: pink')
-    console.log('%cprops:', 'color: yellow')
-    console.table(props)
-    console.groupEnd('Movie Component')
     const movie = movies.find(movie => movie.id === Number(id))
 
     const handleDeleteMovieClick = () => {
         props.deleteMovie(Number(id))
         push('/movies');
     }
+
+    console.groupCollapsed('%cMovie Component', 'color: pink')
+    console.log('%cprops:', 'color: yellow')
+    console.table(props)
+    console.groupEnd('Movie Component')
 
     return (<div className="modal-page col">
         <div className="modal-dialog">
