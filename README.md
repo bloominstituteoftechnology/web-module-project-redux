@@ -68,7 +68,7 @@ In this project, you take a fairly complex application used to search a movie da
 
 * [X] **In reducers/index.js, use the combineReducers method to connect both movies and favorite movies to redux.**
 
-* [] **Notice that your movie functions no longer work. Why?** Make changes necessary to get the component connected to the movie reducer working again.
+* [X] **Notice that your movie functions no longer work. Why?** Make changes necessary to get the component connected to the movie reducer working again.
 
 * [ ] Connect the favorites state to the FavoriteMovieList component and test.
 

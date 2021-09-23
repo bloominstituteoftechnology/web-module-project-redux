@@ -17,3 +17,13 @@ export const removeFromFavorites = (id) => {
         payload: id
     })
 }
+
+export const TOGGLE_FAVORITES = 'TOGGLE_FAVORITES'
+
+export const toggleFavorites = (value) => {
+
+    return ({
+        type: TOGGLE_FAVORITES,
+        payload: value
+    })
+}
