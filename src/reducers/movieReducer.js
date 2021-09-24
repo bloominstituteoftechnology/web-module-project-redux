@@ -7,13 +7,6 @@ export const initialState = {
 };
 
 const movieReducer = (state = initialState, action) => {
-  // console.groupCollapsed("%cmovieReducer.js", "color: yellow")
-  // console.log('%cstate:', 'color: orange')
-  // console.table(state)
-  // console.log('%caction: ', 'color: orange')
-  // console.table(action)
-  // console.groupEnd("movieReducer.js")
-
   switch (action.type) {
     case DELETE_MOVIE:
       return {

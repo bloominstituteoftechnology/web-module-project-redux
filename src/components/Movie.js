@@ -13,20 +13,17 @@ const Movie = (props) => {
   const movie = props.movies.find((movie) => movie.id === Number(id));
 
   const handleDeleteMovieClick = () => {
+    // remove from favorites if it is in that array as well
+    if (props.favorites.includes(movie)) {
+      props.removeFromFavorites(id);
+    }
     props.deleteMovie(id);
-
-    // props.removeFromFavorites(id);
     push("/movies");
   };
 
   const handleAddFavoritesClick = () => {
     props.addToFavorites(movie);
   };
-
-  // console.groupCollapsed("%cMovie Component", "color: yellow");
-  // console.log("%cprops:", "color: yellow");
-  // console.log(props);
-  // console.groupEnd("Movie Component");
 
   return (
     <div className="modal-page col">
@@ -95,6 +92,7 @@ const Movie = (props) => {
 const mapStateToProps = (state) => {
   return {
     movies: state.movieReducer.movies,
+    favorites: state.favoritesReducer.favorites,
     displayFavorites: state.favoritesReducer.displayFavorites,
   };
 };

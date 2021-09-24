@@ -4,9 +4,6 @@ import { Link } from "react-router-dom";
 import { removeFromFavorites } from "../actions/favoritesActions";
 
 const FavoriteMovieList = (props) => {
-  // console.groupCollapsed("%cFavoriteMovieList component", "color: yellow")
-  // console.log('%c:', 'color: orange')
-  // console.groupEnd("FavoriteMovieList component.js")
 
   const handleRemoveClick = (id) => {
     props.removeFromFavorites(id);
