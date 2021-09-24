@@ -21,12 +21,12 @@ const favoritesReducer = (state = initialState, action) => {
         case ADD_TO_FAVORITES:
             return ({
                 ...state,
-                favorites: [...state.favorites, {...action.payload, id: Date.now()}]
+                favorites: [...state.favorites, {...action.payload}]
             })
         case REMOVE_FROM_FAVORITES:
             return ({
                 ...state,
-                favorites: state.favorites.filter(id => id !== action.payload)
+                favorites: state.favorites.filter(item => item.id !== action.payload)
             });
         case TOGGLE_FAVORITES:
             return ({

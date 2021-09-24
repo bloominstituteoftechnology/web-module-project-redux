@@ -15,7 +15,7 @@ export const removeFromFavorites = (id) => {
 
     return ({
         type: REMOVE_FROM_FAVORITES,
-        payload: id
+        payload: Number(id)
     })
 }
 
