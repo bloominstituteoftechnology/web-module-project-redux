@@ -13,10 +13,10 @@ const Movie = (props) => {
     push("/movies");
   };
 
-  console.groupCollapsed("%cMovie Component", "color: yellow");
-  console.log("%cprops:", "color: yellow");
-  console.log(props);
-  console.groupEnd("Movie Component");
+  // console.groupCollapsed("%cMovie Component", "color: yellow");
+  // console.log("%cprops:", "color: yellow");
+  // console.log(props);
+  // console.groupEnd("Movie Component");
 
   return (
     <div className="modal-page col">

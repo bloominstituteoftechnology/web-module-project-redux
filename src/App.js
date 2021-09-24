@@ -1,32 +1,27 @@
-import React, { useReducer } from "react";
-
+import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
-import MovieList from './components/MovieList';
-import Movie from './components/Movie';
+import MovieList from "./components/MovieList";
+import Movie from "./components/Movie";
+import MovieHeader from "./components/MovieHeader";
+import AddMovieForm from "./components/AddMovieForm";
+import FavoriteMovieList from "./components/FavoriteMovieList";
 
-import MovieHeader from './components/MovieHeader';
-
-import AddMovieForm from './components/AddMovieForm';
-import FavoriteMovieList from './components/FavoriteMovieList';
-import reducer from "./reducers";
-import { initialState } from "./reducers/favoritesReducer";
-
-const App = () => {
-
-  const [state] = useReducer(reducer, initialState)
-
+const App = (props) => {
   return (
     <div>
       <nav className="navbar navbar-dark bg-dark">
-        <span className="navbar-brand" ><img width="40px" alt="" src="./Lambda-Logo-Red.png" />Redux Module Project</span>
+        <span className="navbar-brand">
+          <img width="40px" alt="" src="./Lambda-Logo-Red.png" />
+          Redux Module Project
+        </span>
       </nav>
 
       <div className="container">
         <MovieHeader />
         <div className="row ">
-          {state.displayFavorites && <FavoriteMovieList />}
+          {props.displayFavorites && <FavoriteMovieList />}
 
           <Switch>
             <Route exact path="/movies/add">
@@ -51,10 +46,10 @@ const App = () => {
   );
 };
 
-const mapStateToProps = state => {
-  return ({
-    displayFavorites: state.displayFavorites
-  })
-}
+const mapStateToProps = (state) => {
+  return {
+    displayFavorites: state.favoritesReducer.displayFavorites,
+  };
+};
 
 export default connect(mapStateToProps, {})(App);
