@@ -19,9 +19,10 @@ const favoritesReducer = (state = initialState, action) => {
     console.groupEnd("favoritesReducer.js")
     switch (action.type) {
         case ADD_TO_FAVORITES:
+
             return ({
                 ...state,
-                favorites: [...state.favorites, {...action.payload}]
+                favorites: [...new Set([...state.favorites, action.payload])]
             })
         case REMOVE_FROM_FAVORITES:
             return ({
