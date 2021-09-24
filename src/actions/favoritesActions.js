@@ -1,5 +1,6 @@
 export const ADD_TO_FAVORITES = 'ADD_TO_FAVORITES'
 export const REMOVE_FROM_FAVORITES = 'REMOVE_FROM_FAVORITES'
+export const TOGGLE_FAVORITES = 'TOGGLE_FAVORITES'
 
 export const addToFavorites = (id) => {
 
@@ -17,8 +18,6 @@ export const removeFromFavorites = (id) => {
         payload: id
     })
 }
-
-export const TOGGLE_FAVORITES = 'TOGGLE_FAVORITES'
 
 export const toggleFavorites = (value) => {
 

@@ -1,71 +1,84 @@
-import React, { useReducer } from 'react';
-import { connect } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
-import { deleteMovie } from '../actions/movieActions';
-import movieReducer, { initialState } from '../reducers/movieReducer';
+import React from "react";
+import { connect } from "react-redux";
+import { useParams, useHistory } from "react-router-dom";
+import { deleteMovie } from "../actions/movieActions";
 
-const Movie = () => {
+const Movie = (props) => {
+  const { id } = useParams();
+  const { push } = useHistory();
+  const movie = props.movies.find((movie) => movie.id === Number(id));
 
-    const [state] = useReducer(movieReducer, initialState);
+  const handleDeleteMovieClick = () => {
+    props.deleteMovie(id);
+    push("/movies");
+  };
 
-    const { id } = useParams();
-    const { push } = useHistory();
-    const { movies } = state;
-    const movie = movies.find(movie => movie.id === Number(id))
+  console.groupCollapsed("%cMovie Component", "color: yellow");
+  console.log("%cprops:", "color: yellow");
+  console.log(props);
+  console.groupEnd("Movie Component");
 
-    const handleDeleteMovieClick = () => {
-        deleteMovie(Number(id))
-        push('/movies');
-    }
-
-    console.groupCollapsed('%cMovie Component', 'color: yellow')
-    console.log('%cstate:', 'color: yellow')
-    console.table(state)
-    console.groupEnd('Movie Component')
-
-    return (<div className="modal-page col">
-        <div className="modal-dialog">
-            <div className="modal-content">
-                <div className="modal-header">
-                    <h4 className="modal-title">{movie.title} Details</h4>
+  return (
+    <div className="modal-page col">
+      <div className="modal-dialog">
+        <div className="modal-content">
+          <div className="modal-header">
+            <h4 className="modal-title">{movie.title} Details</h4>
+          </div>
+          <div className="modal-body">
+            <div className="flexContainer">
+              <section className="movie-details">
+                <div>
+                  <label>
+                    Title: <strong>{movie.title}</strong>
+                  </label>
                 </div>
-                <div className="modal-body">
-                    <div className="flexContainer">
-
-                        <section className="movie-details">
-                            <div>
-                                <label>Title: <strong>{movie.title}</strong></label>
-                            </div>
-                            <div>
-                                <label>Director: <strong>{movie.director}</strong></label>
-                            </div>
-                            <div>
-                                <label>Genre: <strong>{movie.genre}</strong></label>
-                            </div>
-                            <div>
-                                <label>Metascore: <strong>{movie.metascore}</strong></label>
-                            </div>
-                            <div>
-                                <label>Description:</label>
-                                <p><strong>{movie.description}</strong></p>
-                            </div>
-                        </section>
-
-                        <section>
-                            <span className="m-2 btn btn-dark">Favorite</span>
-                            <span className="delete"><input type="button" className="m-2 btn btn-danger" value="Delete" onClick={handleDeleteMovieClick} /></span>
-                        </section>
-                    </div>
+                <div>
+                  <label>
+                    Director: <strong>{movie.director}</strong>
+                  </label>
                 </div>
+                <div>
+                  <label>
+                    Genre: <strong>{movie.genre}</strong>
+                  </label>
+                </div>
+                <div>
+                  <label>
+                    Metascore: <strong>{movie.metascore}</strong>
+                  </label>
+                </div>
+                <div>
+                  <label>Description:</label>
+                  <p>
+                    <strong>{movie.description}</strong>
+                  </p>
+                </div>
+              </section>
+
+              <section>
+                <span className="m-2 btn btn-dark">Favorite</span>
+                <span className="delete">
+                  <input
+                    type="button"
+                    className="m-2 btn btn-danger"
+                    value="Delete"
+                    onClick={handleDeleteMovieClick}
+                  />
+                </span>
+              </section>
             </div>
+          </div>
         </div>
-    </div>);
-}
+      </div>
+    </div>
+  );
+};
 
-const mapStateToProps = state => {
-    return ({
-        movies: state.movies
-    })
-}
+const mapStateToProps = (state) => {
+  return {
+    movies: state.movieReducer.movies,
+  };
+};
 
 export default connect(mapStateToProps, { deleteMovie })(Movie);

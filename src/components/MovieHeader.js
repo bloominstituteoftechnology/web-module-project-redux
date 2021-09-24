@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react';
 import { connect } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import reducer from '../reducers';
 import { initialState } from '../reducers/movieReducer';
 
@@ -15,7 +15,7 @@ const MovieHeader = () => {
     console.groupEnd('MovieHeader component')
 
     const handleClick = () => {
-        
+        console.log("MovieHeader component: 'Show Favorites' clicked");
     }
 
 
