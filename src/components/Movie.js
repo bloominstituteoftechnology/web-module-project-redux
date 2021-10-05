@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { deleteMovie } from '../actions/movieActions';
+import { toggleFavorites } from '../actions/favoriteActions';
 
 const Movie = (props) => {
     const { id } = useParams();
@@ -9,12 +10,17 @@ const Movie = (props) => {
 
     const movie = props.movies.find(movie=>movie.id===Number(id));
 
-    const handleClick = () => {
-        // console.log(id);
-        console.log(props.movies);
-        props.deleteMovie(id);
+    const handleDelete = () => {
+        props.deleteMovie(movie);
         push('/movies');
     }
+
+    const handleFavorite = () => {
+        props.toggleFavorites(movie);
+        push('/movies');
+    }
+
+
     
     return(<div className="modal-page col">
         <div className="modal-dialog">
@@ -45,8 +51,8 @@ const Movie = (props) => {
                         </section>
                         
                         <section>
-                            <span className="m-2 btn btn-dark">Favorite</span>
-                            <span className="delete"><input type="button" className="m-2 btn btn-danger" value="Delete" onClick={handleClick}/></span>
+                            {props.displayFavorites ? <span className="m-2 btn btn-dark" onClick={handleFavorite}>Favorite</span> : <span></span> }
+                            <span className="delete"><input type="button" className="m-2 btn btn-danger" value="Delete" onClick={handleDelete}/></span>
                         </section>
                     </div>
                 </div>
@@ -57,8 +63,10 @@ const Movie = (props) => {
 
 const mapStateToProps = state => {
     return{
-        movies: state.movies
+        movies: state.movieState.movies,
+        favorites: state.favoriteState.favorites,
+        displayFavorites: state.favoriteState.displayFavorites
     }
 }
 
-export default connect(mapStateToProps, {deleteMovie})(Movie);
+export default connect(mapStateToProps, {deleteMovie, toggleFavorites})(Movie);
