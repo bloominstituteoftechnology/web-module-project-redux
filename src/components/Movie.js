@@ -11,12 +11,12 @@ const Movie = (props) => {
     const movie = props.movies.find(movie=>movie.id===Number(id));
 
     const handleDelete = () => {
-        props.deleteMovie(movie);
+        props.deleteMovie();
         push('/movies');
     }
 
     const handleFavorite = () => {
-        props.toggleFavorites(movie);
+        props.toggleFavorites();
         push('/movies');
     }
 
