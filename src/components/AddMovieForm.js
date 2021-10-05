@@ -8,6 +8,7 @@ const AddMovieForm = (props) => {
     const { push } = useHistory();
 
     const [movie, setMovie] = useState({
+        id: "",
         title: "",
         director: "",
         genre: "",
@@ -20,12 +21,16 @@ const AddMovieForm = (props) => {
             ...movie,
             [e.target.name]: e.target.value
         });
+        // props.addMovie(e);
     }
 
     const handleSubmit = (e) => {
+       e.preventDefault();
+       props.addMovie({...movie, id:Date.now()});
+       push("/movies");
     }
 
-    const { title, director, genre, metascore, description } = movie;
+    const { id, title, director, genre, metascore, description } = movie;
     return(<div className="col">
         <div className="modal-dialog">
             <div className="modal-content">
@@ -66,5 +71,7 @@ const AddMovieForm = (props) => {
         </div>
     </div>);
 }
-
-export default AddMovieForm;
+const mapActionsToProps = { 
+    addMovie:addMovie
+}
+export default connect(null, mapActionsToProps)(AddMovieForm);
