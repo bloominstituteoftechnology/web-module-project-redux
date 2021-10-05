@@ -11,6 +11,7 @@ const Movie = (props) => {
     props.deleteMovie(id);
     push("/movies");
     }
+    console.log(movie);
     const movie = props.movies.find(movie=>movie.id===Number(id));
     
     return(<div className="modal-page col">
