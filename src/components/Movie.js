@@ -7,11 +7,11 @@ const Movie = (props) => {
     const { id } = useParams();
     const { push } = useHistory();
 
-    const deleteHandler = (id)=> {
-    props.deleteMovie(id);
+    const deleteHandler = (e)=> {
+    props.deleteMovie(movie.id);
     push("/movies");
     }
-    console.log(movie);
+    
     const movie = props.movies.find(movie=>movie.id===Number(id));
     
     return(<div className="modal-page col">
