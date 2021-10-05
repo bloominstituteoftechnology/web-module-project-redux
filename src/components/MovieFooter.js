@@ -1,11 +1,18 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 const MovieFooter = (props)=> {
-    const { totalMovies } = props;
+
 
     return(<div className="clearfix footer">
-        <div className="hint-text">Showing <b>{totalMovies}</b> entries</div>
+        <div className="hint-text">Showing <b>{props.movies.length}</b> entries</div>
     </div>);
 }
 
-export default MovieFooter;
+const mapStateToProps = state => {
+    return{
+        movies: state.movies
+    }
+}
+
+export default connect(mapStateToProps)(MovieFooter);
