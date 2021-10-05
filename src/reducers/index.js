@@ -5,7 +5,7 @@ import favoritesReducer from './favoritesReducer';
 
 const rootReducer = combineReducers({
   movieState:movieReducer,
-  favoriteState:favoriteReducer
+  favoriteState:favoritesReducer
 });
 
 export default rootReducer;

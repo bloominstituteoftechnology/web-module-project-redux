@@ -14,7 +14,7 @@ const Movie = (props) => {
         props.deleteMovie(movie.id);
         push('/movies');
     }
-    const handleFav = () => {
+    const handleFavorite = () => {
         props.addFavorite(movie);
         push('/movies');
     }
@@ -48,7 +48,7 @@ const Movie = (props) => {
                         </section>
                         
                         <section>
-                            <span className="m-2 btn btn-dark" onClick={() => handleFav()}>Favorite</span>
+                            <span className="m-2 btn btn-dark" onClick={() => handleFavorite()}>Favorite</span>
                             <span className="delete"><input type="button" className="m-2 btn btn-danger" value="Delete" onClick={() => handleDelete()}/></span>
                         </section>
                     </div>
@@ -60,8 +60,8 @@ const Movie = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        movies: state.movieReducer.movies,
-        favorites: state.favoritesReducer.favorites
+        movies: state.movieState.movies,
+        favorites: state.favoriteState.favorites
     };
 }
 const mapDispatchToState = (dispatch) => {

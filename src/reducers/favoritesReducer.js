@@ -1,4 +1,4 @@
-import { ADD_FAVORITE } from '../actions/movieActions.js';
+import { ADD_FAVORITE, DELETE_FAVORITE } from '../actions/movieActions.js';
 
 
 export const initialState = {
@@ -13,9 +13,13 @@ const favoritesReducer = (state = initialState, action) => {
                 ...state,
                 favorites: [...state.favorites, action.payload]
             };
+            case DELETE_FAVORITE:
+                return {
+                    favorites: state.favorites.filter(favorite=>(action.payload !== favorite.id))
+             };    
             default:
                 return state;
-        }
+            }
 }
 
 export default favoritesReducer;
