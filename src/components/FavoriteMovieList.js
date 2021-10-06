@@ -5,12 +5,12 @@ import { connect } from 'react-redux';
 import { removeFavorite } from '../actions/favoritesActions';
 
 const FavoriteMovieList = (props) => {
+    const { favorites } = props;
     const { id } = useParams();
-    const movie = props.favorites.find(movie=>movie.id===Number(id));
-    console.log(props.favorites);
     
-    const handleRemove = (e) => {
-        props.removeFavorite(props.favorites);
+    
+    const handleRemove = (id) => {
+        props.removeFavorite(id);
     }
    
     return (<div className="col-xs savedContainer">
@@ -20,7 +20,7 @@ const FavoriteMovieList = (props) => {
                 return <div key={movie.id}>
                     <Link className="btn btn-light savedButton" to={`/movies/${movie.id}`}>
                         {movie.title}
-                        <span><span onClick={handleRemove} class="material-icons">remove_circle</span></span>
+                        <span onClick={()=>{handleRemove(movie.id)}}><span  class="material-icons">remove_circle</span></span>
                     </Link> 
                 </div>
             })

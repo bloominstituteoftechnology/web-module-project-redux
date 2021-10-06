@@ -6,12 +6,12 @@ export const toggleFavorites = ()=> {
     return { type: TOGGLE_FAVORITES };
 }
 
-export const addFavorite = ({id, title, director, genre, metascore, description})=> {
+export const addFavorite = (movie)=> {
     console.log("adding now")
-    return { type: ADD_FAVORITE, payload: {id, title, director, genre, metascore, description}}
+    return { type: ADD_FAVORITE, payload: movie}
 }
 
-export const removeFavorite = ({id, title, director, genre, metascore, description}) => {
-    console.log({id, title, director, genre, metascore, description})
-    return { type: REMOVE_FAVORITE, payload: {id, title, director, genre, metascore, description} }
+export const removeFavorite = (id) => {
+    
+    return { type: REMOVE_FAVORITE, payload: id }
 }

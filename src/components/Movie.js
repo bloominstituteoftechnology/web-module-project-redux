@@ -48,7 +48,7 @@ const Movie = (props) => {
                         </section>
                         
                         <section>
-                            <span onClick={addFavoriteHandler}className="m-2 btn btn-dark">Favorite</span>
+                            {props.displayFavorites && <span onClick={addFavoriteHandler}className="m-2 btn btn-dark">Favorite</span>}
                             <span className="delete"><input type="button" className="m-2 btn btn-danger" value="Delete" onClick={deleteHandler}/></span>
                         </section>
                     </div>
@@ -65,7 +65,8 @@ const mapStateToProps = (state) => {
 }
 const mapActionsToProps = {
  deleteMovie:deleteMovie,
- addFavorite:addFavorite
+ addFavorite:addFavorite,
+ 
 
 }
 export default connect(mapStateToProps, mapActionsToProps)(Movie);
