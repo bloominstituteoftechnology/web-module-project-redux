@@ -17,11 +17,11 @@ In this project, you take a fairly complex application used to search a movie da
 
 ## Instructions
 ### Task 1: Project Set Up
-* [ ] Create a forked copy of this project.
-* [ ] Clone your OWN version of the repository in your terminal
-* [ ] cd into the project base directory `cd web-module-project-redux`
-* [ ] Download project dependencies by running `npm install``
-* [ ] Start up the app using `npm start`
+* [X] Create a forked copy of this project.
+* [X] Clone your OWN version of the repository in your terminal
+* [X] cd into the project base directory `cd web-module-project-redux`
+* [X] Download project dependencies by running `npm install``
+* [X] Start up the app using `npm start`
 
 ### Task 2: Project Requirements
 #### Setup Redux
