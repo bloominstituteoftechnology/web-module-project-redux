@@ -7,9 +7,9 @@ export const toggleFavorites = () => {
 }
 
 export const addFavorites = (movie) => {
-	return({type: ADD_FAVORITES, payload:id})
+	return({type: ADD_FAVORITES, payload:movie})
 }
 
-export const removeFavorites = (movie) => {
+export const removeFavorites = (id) => {
 	return({type: REMOVE_FAVORITES, payload:id})
 }
