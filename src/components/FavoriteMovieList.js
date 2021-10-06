@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { removeFavorites } from '../actions/favoriteActions';
@@ -8,8 +8,11 @@ import { removeFavorites } from '../actions/favoriteActions';
 
 const FavoriteMovieList = (props) => {
 
-    const handleRemove = (id) => {
-        props.dispatch(removeFavorites(id));
+    const { id } = useParams();
+
+    const handleRemove = () => {
+        console.log(id);
+        props.dispatch(removeFavorites());
         
     }
     
@@ -30,7 +33,8 @@ const FavoriteMovieList = (props) => {
 
 const mapStateToProps = (state) => {
     return{
-        favorites: state.favoriteState.favorites
+        favorites: state.favoriteState.favorites,
+        movies: state.movieState.movies
     }
 }
 

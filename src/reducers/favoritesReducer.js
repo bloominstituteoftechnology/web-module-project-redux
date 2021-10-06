@@ -2,14 +2,7 @@ import { TOGGLE_FAVORITES, ADD_FAVORITES, REMOVE_FAVORITES } from "../actions/fa
 
 export const initialState = {
     favorites: [
-       {
-           title: '',
-           director: ''
-       },
-       {
-           title: '',
-           director: ''
-       }
+
     ],
     displayFavorites: false
 }
