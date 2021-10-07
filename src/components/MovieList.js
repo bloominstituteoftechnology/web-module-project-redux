@@ -35,7 +35,7 @@ const MovieList = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    movies: state.movies, //we need to map in the component
+    movies: state.movieReducer.movies, //we need to map in the component
   };
 };
 
