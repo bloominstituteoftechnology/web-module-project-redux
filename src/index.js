@@ -8,10 +8,13 @@ import reducer from './reducers';
 import App from './App'
 import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
+import movieReducer from './reducers';
 
 ReactDOM.render(
-  <Router>
-      <App />
-  </Router>,
+  <Provider store={createStore(movieReducer)}>
+    <Router>
+        <App />
+    </Router>
+  </Provider>,
   document.getElementById('root')
 );
