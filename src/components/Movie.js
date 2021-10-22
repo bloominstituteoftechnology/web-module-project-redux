@@ -1,6 +1,8 @@
 import React from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
+import { deleteMovie } from "../actions/movieActions";
+import { Link } from "react-router-dom";
 
 const Movie = (props) => {
   const { id } = useParams();
@@ -50,11 +52,16 @@ const Movie = (props) => {
               <section>
                 <span className="m-2 btn btn-dark">Favorite</span>
                 <span className="delete">
-                  <input
-                    type="button"
-                    className="m-2 btn btn-danger"
-                    value="Delete"
-                  />
+                  <Link to={`/movies`}>
+                    <input
+                      type="button"
+                      className="m-2 btn btn-danger"
+                      value="Delete"
+                      onClick={() => {
+                        props.deleteMovie();
+                      }}
+                    />
+                  </Link>
                 </span>
               </section>
             </div>
@@ -71,4 +78,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {})(Movie);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deleteMovie: () => dispatch(deleteMovie()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Movie);
