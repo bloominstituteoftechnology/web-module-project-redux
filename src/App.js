@@ -13,6 +13,7 @@ import FavoriteMovieList from './components/FavoriteMovieList';
 
 const App = props => {
   const displayFavorites = true;
+  console.log("props from App: ", props)
 
   return (
     <div>
@@ -23,7 +24,7 @@ const App = props => {
       <div className="container">
         <MovieHeader/>
         <div className="row ">
-          {displayFavorites && <FavoriteMovieList/>}
+          {props.favorites.displayFavorites && <FavoriteMovieList/>}
         
           <Switch>
             <Route exact path="/movies/add">
@@ -48,4 +49,10 @@ const App = props => {
   );
 };
 
-export default App;
+const mapStateToProps = (state)=>{
+  return{
+    favorites: state.favorites
+  }
+}
+
+export default connect(mapStateToProps)(App);
