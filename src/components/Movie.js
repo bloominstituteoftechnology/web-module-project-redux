@@ -1,11 +1,16 @@
 import React from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
-const Movie = (props) => {
+import {  deleteMovie } from '../actions/movieActions';
+const Movie = ({ movies, deleteMovie }) => {
     const { id } = useParams();
     const { push } = useHistory();
-
-    const movies = [];
+    
+    const handleDeleteClick = (movieId) => {
+        deleteMovie(movieId)
+        push('/movies')
+    }
+   
     const movie = movies.find(movie=>movie.id===Number(id));
     
     return(<div className="modal-page col">
@@ -38,7 +43,7 @@ const Movie = (props) => {
                         
                         <section>
                             <span className="m-2 btn btn-dark">Favorite</span>
-                            <span className="delete"><input type="button" className="m-2 btn btn-danger" value="Delete"/></span>
+                            <span className="delete"><input type="button" className="m-2 btn btn-danger" value="Delete"  onClick={() => handleDeleteClick(movie.id)}/></span>
                         </section>
                     </div>
                 </div>
@@ -46,10 +51,10 @@ const Movie = (props) => {
         </div>
     </div>);
 }
-const mapStateToProps = ({ movies}) => {
+const mapStateToProps = ({ movies }) => {
     return{
         movies
   }
 }
 
-export default connect(mapStateToProps)(Movie)
+export default connect(mapStateToProps, { deleteMovie })(Movie)
