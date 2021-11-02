@@ -1,18 +1,23 @@
 import React from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
-import {  deleteMovie } from '../actions/movieActions';
-const Movie = ({ movies, deleteMovie }) => {
+import {  deleteMovie, addMovieToFav } from '../actions/movieActions';
+const Movie = ({ movies, deleteMovie, addMovieToFav }) => {
     const { id } = useParams();
     const { push } = useHistory();
+    const movie = movies.find(movie=>movie.id===Number(id));
+    
+
+    const handleAddFav = () => {
+        addMovieToFav(movie)
+        push('/movies')
+    }
     
     const handleDeleteClick = (movieId) => {
         deleteMovie(movieId)
         push('/movies')
     }
    
-    const movie = movies.find(movie=>movie.id===Number(id));
-    
     return(<div className="modal-page col">
         <div className="modal-dialog">
             <div className="modal-content">
@@ -42,7 +47,7 @@ const Movie = ({ movies, deleteMovie }) => {
                         </section>
                         
                         <section>
-                            <span className="m-2 btn btn-dark">Favorite</span>
+                            <span className="m-2 btn btn-dark" onClick={handleAddFav}>Favorite</span>
                             <span className="delete"><input type="button" className="m-2 btn btn-danger" value="Delete"  onClick={() => handleDeleteClick(movie.id)}/></span>
                         </section>
                     </div>
@@ -51,10 +56,10 @@ const Movie = ({ movies, deleteMovie }) => {
         </div>
     </div>);
 }
-const mapStateToProps = ({ movies }) => {
+const mapStateToProps = ({ movieReducer }) => {
     return{
-        movies
+        movies: movieReducer.movies,
   }
 }
 
-export default connect(mapStateToProps, { deleteMovie })(Movie)
+export default connect(mapStateToProps, { deleteMovie, addMovieToFav })(Movie)
