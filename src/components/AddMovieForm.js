@@ -5,14 +5,15 @@ import { connect } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 
 const AddMovieForm = (props) => {
-    const { push } = useHistory();
+    const history = useHistory();
 
     const [movie, setMovie] = useState({
         title: "",
         director: "",
         genre: "",
         metascore: 0,
-        description:""
+        description:"",
+        id:Date.now()
     });
 
     const handleChange = (e) => {
@@ -25,6 +26,10 @@ const AddMovieForm = (props) => {
     const handleSubmit = (e) => {
     }
 
+    const handleAddMovie = () => {
+        props.addMovie(movie)
+        history.push(`/movies`)
+    }
     const { title, director, genre, metascore, description } = movie;
     return(<div className="col">
         <div className="modal-dialog">
@@ -58,7 +63,7 @@ const AddMovieForm = (props) => {
                         			
                     </div>
                     <div className="modal-footer">
-                        <input type="submit" className="btn btn-success" value="Add"/>
+                        <input type="submit" className="btn btn-success" value="Add" onClick={handleAddMovie}/>
                         <Link to={`/movies`}><input type="button" className="btn btn-default" value="Cancel"/></Link>
                     </div>
                 </form>
@@ -67,4 +72,4 @@ const AddMovieForm = (props) => {
     </div>);
 }
 
-export default AddMovieForm;
+export default connect(null, {addMovie})(AddMovieForm);
