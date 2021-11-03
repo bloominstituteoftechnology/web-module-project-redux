@@ -19,7 +19,6 @@ const Movie = (props) => {
         push('/movies');
     }
 
-   
 
     
   
