@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
-// import { deleteMovie } from './..actions/movieActions';
+import { deleteMovie } from './../actions/movieActions';
 
 const Movie = (props) => {
     const { id } = useParams();
@@ -55,7 +55,7 @@ const Movie = (props) => {
 
 const mapStateToProps = (state) => {
     return({
-        movie: state.movies
+        movies: state.movies
     });
 }
 
