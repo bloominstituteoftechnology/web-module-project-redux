@@ -3,13 +3,13 @@ import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from 'react-redux';
 
-import MovieList from './components/MovieList';
-import Movie from './components/Movie';
+import MovieList from './MovieList';
+import Movie from './Movie';
 
-import MovieHeader from './components/MovieHeader';
+import MovieHeader from './MovieHeader';
 
-import AddMovieForm from './components/AddMovieForm';
-import FavoriteMovieList from './components/FavoriteMovieList';
+import AddMovieForm from './AddMovieForm';
+import FavoriteMovieList from './FavoriteMovieList';
 
 const App = props => {
   const displayFavorites = true;
