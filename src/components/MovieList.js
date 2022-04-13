@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { connect } from 'react-redux'
 import MovieListItem from './MovieListItem';
 import MovieFooter from './MovieFooter';
 
@@ -30,5 +30,8 @@ const MovieList = (props)=> {
         </div>
     );
 }
+const mapStatetoProps = (state) => {
+    return {movies:state.movieReducer.movies}
+}
 
-export default MovieList;
+export default connect(mapStatetoProps) (MovieList);
