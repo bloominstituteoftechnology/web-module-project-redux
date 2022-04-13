@@ -23,6 +23,8 @@ const AddMovieForm = (props) => {
     }
 
     const handleSubmit = (e) => {
+        props.addMovie(props.movie)
+        push('/movies')
     }
 
     const { title, director, genre, metascore, description } = movie;
@@ -55,7 +57,6 @@ const AddMovieForm = (props) => {
                             <label>Description</label>
                             <textarea value={description} onChange={handleChange} name="description" className="form-control"></textarea>
                         </div>
-                        			
                     </div>
                     <div className="modal-footer">
                         <input type="submit" className="btn btn-success" value="Add"/>
@@ -67,4 +68,4 @@ const AddMovieForm = (props) => {
     </div>);
 }
 
-export default AddMovieForm;
+export default connect(null, { addMovie })(AddMovieForm);
