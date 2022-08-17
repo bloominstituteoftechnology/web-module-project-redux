@@ -1,0 +1,29 @@
+import {TOGGLE_FAVORITES, ADD_FAVORITE, REMOVE_FAVORITE} from '../actions/favoritesActions'
+
+const initialState = {
+    favoriteMovies: [],
+    displayFavorites: true
+}
+
+export default function favoritesReducer(state = initialState, action) {
+switch(action.type){
+    case TOGGLE_FAVORITES: 
+    return{...state,
+        displayFavorites: !state.displayFavorites
+    }
+    case ADD_FAVORITE:
+        const movieTitleAndId = action.payload
+        return {...state,
+            favoriteMovies: state.favoriteMovies.concat(movieTitleAndId)
+        }
+    case REMOVE_FAVORITE:
+        const id = action.payload
+        return {...state,
+            favoriteMovies: state.favoriteMovies.map((movie, idx)=> movie.id === id ? {...state, favoriteMovies: state.favoriteMovies.slice(1, idx)} : movie) 
+        }
+
+    default:
+        return state
+} 
+
+}
