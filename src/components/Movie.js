@@ -21,7 +21,9 @@ const Movie = (props) => {
 
     const onClick = () => {
         props.addFavorite({title: movie.title, id: movie.id})
+        props.disableButton(movie.id)
     }
+
     
     return(<div className="modal-page col">
         <div className="modal-dialog">
@@ -52,8 +54,8 @@ const Movie = (props) => {
                         </section>
                         
                         <section>
-                           <span onClick={onClick} className="m-2 btn btn-dark">Favorite</span> 
-                            <span className="delete" onClick={deleteMovie}><input type="button" className="m-2 btn btn-danger" value="Delete"/></span>
+                           {props.favoritesReducer.displayFavorites === true ? <button onClick={onClick} className="m-2 btn btn-dark">Favorite</button>: ''} 
+                            <span disabled={props.favoritesReducer.disableButton} className="delete" onClick={deleteMovie}><input type="button" className="m-2 btn btn-danger" value="Delete"/></span>
                         </section>
                     </div>
                 </div>

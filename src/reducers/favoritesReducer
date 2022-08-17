@@ -1,8 +1,9 @@
-import {TOGGLE_FAVORITES, ADD_FAVORITE, REMOVE_FAVORITE} from '../actions/favoritesActions'
+import {TOGGLE_FAVORITES, ADD_FAVORITE, REMOVE_FAVORITE, DISABLE_FAVORITE_BUTTON} from '../actions/favoritesActions'
 
 const initialState = {
     favoriteMovies: [],
-    displayFavorites: true
+    displayFavorites: true,
+    disableButton: false
 }
 
 export default function favoritesReducer(state = initialState, action) {
@@ -14,13 +15,21 @@ switch(action.type){
     case ADD_FAVORITE:
         const movieTitleAndId = action.payload
         return {...state,
-            favoriteMovies: state.favoriteMovies.concat(movieTitleAndId)
+             favoriteMovies: state.favoriteMovies.concat(movieTitleAndId)
         }
     case REMOVE_FAVORITE:
         const id = action.payload
         return {...state,
             favoriteMovies: state.favoriteMovies.map((movie, idx)=> movie.id === id ? {...state, favoriteMovies: state.favoriteMovies.slice(1, idx)} : movie) 
         }
+        case DISABLE_FAVORITE_BUTTON:
+            const theId = action.payload
+            return {...state, favoriteMovies: state.favoriteMovies.map(e => {
+                if(e.id === theId){
+                return {...state, disableButton: !state.disableButton}}
+            })
+        }
+             
 
     default:
         return state
