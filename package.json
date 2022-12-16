@@ -46,6 +46,7 @@
     "react-redux": "^7.2.6",
     "react-router-dom": "5.2.0",
     "redux": "^4.2.0",
+    "redux-devtools-extension": "^2.13.9",
     "sass": "^1.32.8",
     "style-loader": "^3.3.1",
     "styled-components": "5.3.3"
