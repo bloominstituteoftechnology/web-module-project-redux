@@ -13,6 +13,10 @@ const Movie = (props) => {
         deleteMovie(movie.id);
         push('/movies')
     }
+    const handleAdd = event => {
+        event.preventDefault();
+        
+    }
     return(<div className="modal-page col">
         <div className="modal-dialog">
             <div className="modal-content">
