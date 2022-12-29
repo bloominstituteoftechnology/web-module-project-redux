@@ -1,10 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 import MovieListItem from './MovieListItem';
 import MovieFooter from './MovieFooter';
 
 const MovieList = (props)=> {
-    const { movies } = props
+    const movies = props.movies;
 
     return (
         <div className="col">
@@ -30,11 +30,11 @@ const MovieList = (props)=> {
         </div>
     );
 }
-
-const mapstatetoProps =(state)=> {
-    return({
-        movies:state.movies
-    })
+const mapStateToProps = state => {
+    return {
+        movies: state.movie.movies
+    }
 }
 
-export default connect(mapstatetoProps)(MovieList);
+
+export default connect(mapStateToProps, {})(MovieList);
