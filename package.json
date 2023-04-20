@@ -15,6 +15,7 @@
     "@testing-library/jest-dom": "5.15.0",
     "@testing-library/react": "12.1.2",
     "@types/jest": "27.0.2",
+    "@types/react-router-dom": "^5.3.3",
     "babel-loader": "8.2.3",
     "babel-plugin-styled-components": "1.13.3",
     "concurrently": "6.3.0",
