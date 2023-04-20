@@ -30,7 +30,7 @@ const MovieList = (props)=> {
                 </tbody>
             </table>
             
-            <MovieFooter totalMovies={props.movies.length}/>
+            <MovieFooter totalMovies={movies.length}/>
         </div>
     );
 }
@@ -38,7 +38,7 @@ const MovieList = (props)=> {
 
 const mapStateToProps = state => {
     return {
-      movies: state.movies,
+      movies: state.movieReducer.movies,
     }
   }
 
