@@ -10,9 +10,10 @@ import App from './components/App';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
 import favoritesReducer from './reducers/favoritesReducers';
+import rootReducer from './reducers';
 
 
-const store = createStore(reducer, favoritesReducer, window.__REDUX_DEVTOOLS_EXTENSION && window.__REDUX_DEVTOOLS_EXTENSION())
+const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION && window.__REDUX_DEVTOOLS_EXTENSION())
 
 ReactDOM.render(
   

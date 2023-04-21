@@ -6,7 +6,7 @@ import { Link, useHistory } from 'react-router-dom';
 
 const AddMovieForm = (props) => {
     const { push } = useHistory();
-
+ const  { addMovie } = props
     const [movie, setMovie] = useState({
         title: "",
         director: "",
@@ -25,6 +25,9 @@ const AddMovieForm = (props) => {
    
 
     const { title, director, genre, metascore, description } = movie;
+
+
+    // console.log("what we are submitting: ", movie)
     return(<div className="col">
         <div className="modal-dialog">
             <div className="modal-content">

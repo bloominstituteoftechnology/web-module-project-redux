@@ -7,7 +7,7 @@ import { removeFavorite } from '../actions/favoritesActions';
 
 const FavoriteMovieList = (props) => {
     // const favorites = [];
-    const {favorites, displayFavorites} = props;
+    const {favorites, removeFavorite } = props;
     
     
     return (<div className="col-xs savedContainer">
@@ -16,8 +16,8 @@ const FavoriteMovieList = (props) => {
             favorites.map(movie=>{
                 return <div key={movie.id}>
                     <Link className="btn btn-light savedButton" to={`/movies/${movie.id}`}>
-                        {favorites.title}
-                        <span><span onClick={()=> removeFavorite(movie.id)} class="material-icons">remove_circle</span></span>
+                        {movie.title}
+                        <span><span onClick={()=> {removeFavorite(movie.id)}} class="material-icons">remove_circle</span></span>
                     </Link> 
                 </div>
             })

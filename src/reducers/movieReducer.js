@@ -18,6 +18,7 @@ const reducer = (state = initialState, action) => {
                 ...action.payload,
                 id: Date.now()
             }
+            console.log("newMovie: ", newMovie)
             return{
                 ...state,
                 movies: [...state.movies, newMovie]

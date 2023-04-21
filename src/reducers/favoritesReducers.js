@@ -1,15 +1,19 @@
 import { ADD_FAVORITE, REMOVE_FAVORITE, TOGGLE_FAVORITES } from '../actions/favoritesActions.js';
+import movies from '../data.js';
 
 
 const initialState = {
     favorites: [],
-    displayFavorites: true
+    displayFavorites: true,
+    movies: movies
 }
 
 
 const favoritesReducer = (state = initialState, action) => {
     switch(action.type){
+        
         case (ADD_FAVORITE): {
+
             return {
                 ...state,
                 favorites: [...state.favorites, action.payload]
