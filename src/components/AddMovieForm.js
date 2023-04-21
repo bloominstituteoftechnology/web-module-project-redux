@@ -6,7 +6,7 @@ import { Link, useHistory } from 'react-router-dom';
 
 const AddMovieForm = (props) => {
     const { push } = useHistory();
-
+ const  { addMovie } = props
     const [movie, setMovie] = useState({
         title: "",
         director: "",
@@ -22,14 +22,16 @@ const AddMovieForm = (props) => {
         });
     }
 
-    const handleSubmit = (e) => {
-    }
+   
 
     const { title, director, genre, metascore, description } = movie;
+
+
+    // console.log("what we are submitting: ", movie)
     return(<div className="col">
         <div className="modal-dialog">
             <div className="modal-content">
-                <form onSubmit={handleSubmit}>
+                <form  onSubmit={(e)=> {e.preventDefault; addMovie(movie); push('/movies') }}>
                     <div className="modal-header">						
                         <h4 className="modal-title">Add Movie</h4>
                     </div>
@@ -67,4 +69,9 @@ const AddMovieForm = (props) => {
     </div>);
 }
 
-export default AddMovieForm;
+
+
+// export default AddMovieForm;
+
+
+export default connect(null, {addMovie})(AddMovieForm)
