@@ -4,9 +4,15 @@ import { Link } from "react-router-dom";
 
 import { connect } from "react-redux";
 
+import { removeFavorite } from "../actions/favoritesActions";
+
 const FavoriteMovieList = (props) => {
   const { favorites } = props;
   console.log(favorites);
+
+  const handleRemove = (id) => {
+    props.removeFavorite(id);
+  };
 
   return (
     <div className="col-xs savedContainer">
@@ -20,7 +26,12 @@ const FavoriteMovieList = (props) => {
             >
               {movie.title}
               <span>
-                <span class="material-icons">remove_circle</span>
+                <span
+                  onClick={() => handleRemove(movie.id)}
+                  class="material-icons"
+                >
+                  remove_circle
+                </span>
               </span>
             </Link>
           </div>
@@ -38,4 +49,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {})(FavoriteMovieList);
+export default connect(mapStateToProps, { removeFavorite })(FavoriteMovieList);

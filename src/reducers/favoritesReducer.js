@@ -6,7 +6,7 @@ import {
 
 const initialState = {
   favorites: [],
-  displayFavorites: false,
+  displayFavorites: true,
 };
 
 const favoritesReducer = (state = initialState, action) => {
@@ -25,7 +25,7 @@ const favoritesReducer = (state = initialState, action) => {
     case REMOVE_FAVORITE: {
       return {
         ...state,
-        favorites: state.filter((movie) => {
+        favorites: state.favorites.filter((movie) => {
           movie.id !== action.payload;
         }),
       };
