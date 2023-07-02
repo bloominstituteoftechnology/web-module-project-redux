@@ -53,7 +53,7 @@ const Movie = (props) => {
 }
 const mapStateToProps = (state) => {
     return({
-        movies:state.movies
+        movies:state.moviesReducer.movies 
     });
 }
 export default connect(mapStateToProps, {deleteMovie})(Movie);
