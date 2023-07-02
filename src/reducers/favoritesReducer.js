@@ -1,5 +1,5 @@
 const initialState = {
-    favorites: [{title: "movie", id: 1}], 
+    favorites: [], 
     displayFavorites: true
 }
 
