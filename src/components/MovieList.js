@@ -6,6 +6,7 @@ import MovieFooter from './MovieFooter';
 const MovieList = (props)=> {
     const movies = [];
 
+    console.log(props)
     return (
         <div className="col">
             <table className="table table-striped table-hover">
