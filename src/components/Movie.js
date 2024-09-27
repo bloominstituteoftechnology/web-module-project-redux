@@ -1,5 +1,7 @@
 import React from 'react';
 import { useParams, useHistory } from 'react-router-dom';
+import { connect } from 'react-redux'
+
 
 const Movie = (props) => {
     const { id } = useParams();
