@@ -2,8 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const MovieHeader = (props) => {
-    const appTitle = "";
+    const appTitle = '';
     const displayFavorites = true;
+    console.log('MOVIEHEADER',props)
     
     return(<div className="table-title">
         <div className="row">
